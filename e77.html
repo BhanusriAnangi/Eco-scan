@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoScan Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="sub.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <br>
+<!-- Service Detail Page -->
+<div class="detail-container">
+    <div class="header-section">
+        <img src="e77.jpg" alt="Service Image" class="image-box">
+        <div class="info-box">
+            <h1 class="main-title">Contrast-enhanced Mammography</h1>
+            <p class="short-description">
+                Contrast-enhanced mammography is an advanced imaging technique that uses a contrast dye to enhance the visibility of breast tissue, helping to detect abnormalities such as tumors, cysts, and other irregularities.
+            </p>
+        </div>
+    </div>
+
+    <div class="description-section">
+        <h2>Description</h2>
+        <p>
+            Contrast-enhanced mammography is a diagnostic imaging procedure used to improve the detection of breast cancer and other breast abnormalities. It involves the injection of a contrast dye into the body, which helps to enhance the visibility of the breast tissue on mammogram images. This technique is particularly helpful for women with dense breast tissue, where traditional mammography might be less effective. The contrast dye allows the radiologist to see areas of abnormal blood flow, which could indicate the presence of tumors or other abnormalities.
+        </p>
+    </div>
+
+    <!-- Accordion Section (Row-wise) -->
+    <div class="accordion-wrapper">
+        <div class="accordion-column">
+            <button class="accordion-button">
+                <i class="icon fas fa-procedures"></i>
+                <span>Procedure Details</span>
+            </button>
+            <div class="accordion-content">
+                <p>
+                    The procedure begins by injecting a contrast dye into the patient's vein. After a short wait to allow the dye to circulate, the mammography is performed, capturing images of the breast tissue. These images are then analyzed by a radiologist, who looks for areas of enhanced contrast, which may indicate abnormal tissue. The procedure is relatively quick and typically takes about 30 minutes to complete. It is a safe, non-invasive method used to identify abnormalities in breast tissue.
+                </p>
+            </div>
+        </div>
+
+        <div class="accordion-column">
+            <button class="accordion-button">
+                <i class="icon fas fa-plug"></i>
+                <span>Equipment Used</span>
+            </button>
+            <div class="accordion-content">
+                <p>
+                    The primary equipment used in Contrast-enhanced Mammography includes:
+                    <ul>
+                        <li><strong>Mammography Machine:</strong> A specialized X-ray machine used to capture detailed images of breast tissue.</li>
+                        <li><strong>Contrast Dye:</strong> A special contrast agent that is injected into the body to enhance the visibility of tissue and blood vessels in the breast.</li>
+                        <li><strong>Injection Equipment:</strong> A needle and IV setup used to administer the contrast dye into the bloodstream.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="accordion-column">
+            <button class="accordion-button">
+                <i class="icon fas fa-heart"></i>
+                <span>Patient Benefits</span>
+            </button>
+            <div class="accordion-content">
+                <p>
+                    Contrast-enhanced mammography offers several benefits, including:
+                    <ul>
+                        <li><strong>Improved Detection:</strong> The contrast dye enhances the visibility of tumors or other abnormalities in the breast tissue, particularly in women with dense breasts.</li>
+                        <li><strong>Non-invasive:</strong> The procedure is quick and non-invasive, providing valuable information without the need for surgery or biopsies.</li>
+                        <li><strong>Better Diagnosis:</strong> The enhanced imaging can help doctors differentiate between benign and malignant masses, leading to more accurate diagnoses and treatment plans.</li>
+                        <li><strong>Minimal Discomfort:</strong> The procedure is generally painless, although the injection of the contrast dye may cause a brief moment of discomfort.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Section -->
+    <div class="booking-wrapper">
+        <h2>Book a Consultation</h2>
+<a href="appointment.html" class="book-button">Schedule Now</a>    </div>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingModal" class="modal-wrapper">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+            <h2>Schedule Your Contrast-enhanced Mammography Appointment</h2>
+            <form id="bookingForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <div class="error-message" id="name-error"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div class="error-message" id="email-error"></div>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required
+                    pattern="^[0-9]{10}$">
+                <div class="error-message" id="phone-error"></div>
+
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+                <div class="error-message" id="date-error"></div>
+
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
+                <div class="error-message" id="time-error"></div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form" style="flex-direction: row;">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="sub.js"></script>
+</body>
+
+</html>

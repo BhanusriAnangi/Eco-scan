@@ -1,0 +1,129 @@
+/* General Wrapper Setup */
+.wrapper {
+    background-color: #f9f6f4;
+    margin: 10px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* Flexible grid */
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Card Styling */
+.card {
+    background: #3a0ca3;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: -17px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #dfedf7;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s;
+    margin-top: 60px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #9ac0db;
+}
+
+/* Responsive Styles */
+
+/* For large screens (desktops and above) */
+@media (min-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(5, 1fr);
+        /* 5 cards per row */
+    }
+}
+
+/* For medium screens (tablets and below 1200px) */
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 cards per row */
+    }
+}
+
+/* For small screens (landscape tablets and below 768px) */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards per row */
+    }
+}
+
+/* For very small screens (portrait smartphones and below 480px) */
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        /* 1 card per row */
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin-top: 20px;
+        /* Adjust button margin */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        /* Adjust the title font size */
+    }
+}

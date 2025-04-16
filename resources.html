@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover: #001F3F;
+            --background: #f9fafb;
+            --card-background: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --border-color: #e5e7eb;
+        }
+
+       
+
+      
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .search-bar {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .search-bar svg {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        /* Tabs for Resource Types */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Grid Layout */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resource-content {
+            padding: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            background-color: #e9f6ea;
+            color: var(--primary-color);
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+  <!-- Page Header End -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Radiology Resource Library</h1>
+        <p>Your one-stop destination for articles, eBooks, and infographics on radiology.</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for resources...">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21L16.65 16.65"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Tabs for Resource Types -->
+    <div class="tabs">
+        <div class="tab active" data-type="all">All</div>
+        <div class="tab" data-type="article">Articles</div>
+        <div class="tab" data-type="ebook">eBooks</div>
+        <div class="tab" data-type="infographic">Infographics</div>
+    </div>
+    <div class="resource-grid">
+        <!-- Card 1: Article -->
+        <div class="resource-card" data-type="article">
+            <div class="resource-image">
+                <img src="resourceimg1.jpg" alt="Advanced Imaging Techniques">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title"> Imaging Techniques</h3>
+                <p class="resource-description">Explore the latest advancements in MRI, CT, and ultrasound imaging.
+                </p>
+                <div class="tags">
+                    <span class="tag">#Radiology</span>
+                    <span class="tag">#Imaging</span>
+                </div>
+                <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 2: Article -->
+        <div class="resource-card" data-type="article">
+            <div class="resource-image">
+                <img src="resourceimg2.jpg" alt="AI in Radiology">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">AI in Radiology</h3>
+                <p class="resource-description">How artificial intelligence is transforming diagnostic imaging.</p>
+                <div class="tags">
+                    <span class="tag">#AI</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 3: eBook -->
+        <div class="resource-card" data-type="ebook">
+            <div class="resource-image">
+                <img src="resourceimg3.jpg" alt="Radiology Safety Guidelines">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">Radiology  Guidelines</h3>
+                <p class="resource-description">Essential safety practices for radiologists and technicians.</p>
+                <div class="tags">
+                    <span class="tag">#Safety</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 4: eBook -->
+        <div class="resource-card" data-type="ebook">
+            <div class="resource-image">
+                <img src="resourceimg4.jpg" alt="Ultrasound Basics">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">Ultrasound Basics</h3>
+                <p class="resource-description">A beginner's guide to understanding ultrasound imaging.</p>
+                <div class="tags">
+                    <span class="tag">#Ultrasound</span>
+                    <span class="tag">#Basics</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 5: Infographic -->
+        <div class="resource-card" data-type="infographic">
+            <div class="resource-image">
+                <img src="resourceimg5.jpg" alt="Pediatric Radiology Tips">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">Pediatric Radiology Tips</h3>
+                <p class="resource-description">Learn specialized imaging techniques for pediatric patients.</p>
+                <div class="tags">
+                    <span class="tag">#Pediatrics</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 6: Infographic -->
+        <div class="resource-card" data-type="infographic">
+            <div class="resource-image">
+                <img src="resourceimg6.jpg" alt="3D Imaging Insights">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">3D Imaging Insights</h3>
+                <p class="resource-description">How 3D imaging is improving patient outcomes in radiology.</p>
+                <div class="tags">
+                    <span class="tag">#3DImaging</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 7: Article -->
+        <div class="resource-card" data-type="article">
+            <div class="resource-image">
+                <img src="resourceimg7.jpg" alt="Radiology in Oncology">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">Radiology in Oncology</h3>
+                <p class="resource-description">Role of radiology in detecting and treating cancer.</p>
+                <div class="tags">
+                    <span class="tag">#Oncology</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 8: Article -->
+        <div class="resource-card" data-type="article">
+            <div class="resource-image">
+                <img src="resourceimg8.jpg" alt="MRI Techniques">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">MRI Techniques</h3>
+                <p class="resource-description">A comprehensive guide to advanced MRI imaging techniques.</p>
+                <div class="tags">
+                    <span class="tag">#MRI</span>
+                    <span class="tag">#Imaging</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 9: eBook -->
+        <div class="resource-card" data-type="ebook">
+            <div class="resource-image">
+                <img src="resourceimg9.jpg" alt="AI Ethics in Radiology">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">AI Ethics in Radiology</h3>
+                <p class="resource-description">Addressing ethical concerns in AI-assisted radiology.</p>
+                <div class="tags">
+                    <span class="tag">#Ethics</span>
+                    <span class="tag">#AI</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 10: Infographic -->
+        <div class="resource-card" data-type="infographic">
+            <div class="resource-image">
+                <img src="resourceimg10.jpg" alt="CT Scan Innovations">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">CT Scan Innovations</h3>
+                <p class="resource-description">Recent innovations and their impact on CT scan procedures.</p>
+                <div class="tags">
+                    <span class="tag">#CTScan</span>
+                    <span class="tag">#Innovations</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 11: Article -->
+        <div class="resource-card" data-type="article">
+            <div class="resource-image">
+                <img src="resourceimg11.jpg" alt="Telemedicine in Radiology">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title">Telemedicine </h3>
+                <p class="resource-description">The growing importance of telemedicine in radiology practice.</p>
+                <div class="tags">
+                    <span class="tag">#Telemedicine</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+        <!-- Card 12: eBook -->
+        <div class="resource-card" data-type="ebook">
+            <div class="resource-image">
+                <img src="resourceimg12.jpg" alt="Radiology in Emergency Medicine">
+            </div>
+            <div class="resource-content">
+                <h3 class="resource-title"> Emergency Medicine</h3>
+                <p class="resource-description">A guide to the essential radiology techniques used in emergency
+                  </p>
+                <div class="tags">
+                    <span class="tag">#EmergencyMedicine</span>
+                    <span class="tag">#Radiology</span>
+                </div>
+                 <button class="download-btn" onclick="downloadFile('radiology_trends.pdf')">
+                    <span class="download-icon">⬇</span> Download
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+<script>
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.tab');
+        const resourceCards = document.querySelectorAll('.resource-card');
+        const searchInput = document.getElementById('search');
+
+        // Filter function for the tabs
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Get the data-type of the clicked tab
+                const selectedType = tab.getAttribute('data-type');
+
+                // Show or hide resource cards based on the selected tab
+                resourceCards.forEach(card => {
+                    if (selectedType === 'all' || card.getAttribute('data-type') === selectedType) {
+                        card.style.display = 'block';  // Show the card
+                    } else {
+                        card.style.display = 'none';  // Hide the card
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.toLowerCase();
+            resourceCards.forEach(card => {
+                const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = 'block';  // Show the card if it matches the search
+                } else {
+                    card.style.display = 'none';  // Hide the card if it doesn't match
+                }
+            });
+        });
+    });
+    function downloadFile(fileName) {
+            // Path to your PDF file
+            const fileUrl = fileName;  // Use the passed file name
+
+            // Create an anchor element
+            const anchor = document.createElement('a');
+
+            // Set the href and download attributes
+            anchor.href = fileUrl;
+            anchor.download = '';  // This will prompt the browser to download the file
+
+            // Append the anchor to the body temporarily (required to trigger click in some browsers)
+            document.body.appendChild(anchor);
+
+            // Trigger a click event on the anchor element
+            anchor.click();
+
+            // Remove the anchor element after the download
+            document.body.removeChild(anchor);
+        }
+</script>
+
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

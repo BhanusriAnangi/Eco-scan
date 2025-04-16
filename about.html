@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+  /* styles.css */
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+} */
+
+.about-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* text-align: center; */
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.left-column {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  /* line-height: 1.6; */
+}
+
+.image-section {
+  flex: 1 1 300px;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.bullet-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.bullet-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+.right-column {
+  flex: 1 1 300px;
+
+}
+
+.secondary-image {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+<style type="text/css">
+  body{
+margin-top:20px;
+background:rgba(241,246,253);
+}
+.rounded-circle {
+border-radius: 50%!important;
+}
+.border-5 {
+border-width: 5px;
+}
+
+.border-white {
+border-opacity: 1;
+border-color: rgba(255,255,255, 1) !important;
+}
+
+.shadow {
+box-shadow: 0 0.375rem 1.5rem 0 rgba(140,152,164,.125)!important;
+}
+
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+.icon-sm {
+width: 1.5rem;
+height: 1.5rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+font-size: 75%;
+line-height: normal;
+}
+.rounded-circle {
+border-radius: 50%!important;
+}
+
+.hover-top-in .hover-top--in {
+transition: ease-in-out all .35s;
+position: relative;
+top: 0
+}
+
+.hover-top-in:hover .hover-top--in {
+top: -10px
+}
+
+.me-1 {
+margin-right: 0.25rem!important;
+}
+
+/* .fw-700 {
+font-weight: 700!important;
+} */
+.mb-1 {
+margin-bottom: 0.25rem!important;
+}
+
+.z-index-1 {
+z-index: 1!important;
+}
+
+.pt-6 {
+padding-top: 2.5rem!important;
+}
+.p-4 {
+padding: 1.5rem!important;
+}
+.mt-n4 {
+margin-top: -1.5rem!important;
+}
+
+.shadow {
+box-shadow: 0 0.375rem 1.5rem 0 rgba(var(--bs-gray-700-rgb),.125)!important;
+}
+.px-5 {
+padding-right: 2rem!important;
+padding-left: 2rem!important;
+}
+.position-relative {
+position: relative!important;
+}
+.overflow-hidden {
+overflow: hidden!important;
+}
+
+
+    
+.history-wrapper {
+  position: relative;
+  padding: 50px 0 50px;
+}
+.history-wrapper:after {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background: #ededed;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+.history-wrapper .title-wrap {
+  opacity: 0.2;
+  padding: 100px 0 0 45px;
+}
+.history-wrapper .timeline-box {
+  position: relative;
+}
+.one-of-two {
+  width: 50%;
+  float: left;
+}
+.history-wrapper .timeline-box:not(:last-child) {
+  margin-bottom: 140px;
+}
+.timeline-box:nth-child(2n) {
+  padding: 0 0 0 140px;
+}
+.history-wrapper .timeline-box:nth-child(2n) {
+  margin-bottom: 140px;
+}
+.history-wrapper .timeline-box:nth-child(2n + 1) {
+  margin-top: -16%;
+  text-align: right;
+}
+.timeline-box:nth-child(2n + 1) {
+  padding: 0 140px 0 0;
+}
+.year {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  background: #fff;
+  top: 30%;
+  color: #3b3b3b;
+  transform: translateY(-50%);
+  border: 1px solid #dbdbdb;
+  line-height: 100px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+.timeline-box:nth-child(2n) .year {
+  left: 25px;
+}
+.timeline-box:nth-child(2n + 1) .year {
+  right: 32px;
+}
+.year:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-left: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  margin-top: -7.5px;
+}
+.timeline-box:nth-child(2n) .year:before {
+  left: -8px;
+  transform: rotate(45deg);
+}
+.timeline-box:nth-child(2n + 1) .year:before {
+  right: -8px;
+  transform: rotate(-135deg);
+}
+.timeline-box:after {
+  content: "";
+  width: 3px;
+  height: 0;
+  background: #ffa200;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.timeline-box:nth-child(2n):after {
+  left: -1.5px;
+}
+.timeline-box:nth-child(2n + 1):after {
+  right: -1.5px;
+}
+.timeline-box:hover:after {
+  height: 97px;
+}
+.timeline-box:before {
+  content: "";
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border: 5px solid #ededed;
+  position: absolute;
+  background: #fff;
+  z-index: 2;
+  top: 30%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+.timeline-box:nth-child(2n):before {
+  left: -10.5px;
+}
+.timeline-box:nth-child(2n + 1):before {
+  right: -10.5px;
+}
+.timeline-box:hover:before {
+  border: 5px solid #ffa200;
+}
+@media screen and (max-width: 1199px) {
+  .year {
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      font-size: 22px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .history-wrapper {
+      padding: 30px 0 30px;
+  }
+  .history-wrapper .title-wrap {
+      padding: 0;
+      margin-bottom: 30px;
+  }
+  .title-wrap.one-of-two {
+      width: 100%;
+  }
+  .history-wrapper:after {
+      left: 0;
+  }
+  .history-wrapper .timeline-box:nth-child(2n) {
+      padding: 0 0 0 140px;
+  }
+  .history-wrapper .timeline-box:not(:last-child) {
+      margin-bottom: 40px;
+  }
+  .timeline-box.one-of-two,
+  .timeline-box .img img {
+      width: 100%;
+  }
+  .history-wrapper .timeline-box:nth-child(2n + 1) {
+      margin-top: 0;
+      text-align: left;
+  }
+  .timeline-box:nth-child(2n + 1) .year {
+      left: 32px;
+  }
+  .timeline-box:nth-child(2n + 1):before {
+      left: -10.5px;
+  }
+  .timeline-box:nth-child(2n + 1) .year:before {
+      left: -8px;
+      transform: rotate(45deg);
+  }
+  .timeline-box:nth-child(2n + 1):after {
+      left: -1.5px;
+  }
+  .history-wrapper .timeline-box:nth-child(2n + 1) {
+      margin-top: 0;
+      text-align: left;
+  }
+  .timeline-box:nth-child(2n + 1) {
+      padding: 0 0 0 140px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .history-wrapper:after,
+  .year,
+  .timeline-box:before {
+      display: none;
+  }
+  .history-wrapper {
+      padding: 0;
+  }
+  .history-wrapper .timeline-box:nth-child(2n),
+  .history-wrapper .timeline-box:nth-child(2n + 1) {
+      padding: 0 15px;
+  }
+  .history-wrapper .timeline-box:not(:last-child) {
+      margin-bottom: 30px;
+  }
+  .timeline-box .content {
+      text-align: center;
+  }
+  .timeline-box:nth-child(2n):after,
+  .timeline-box:nth-child(2n + 1):after {
+      display: none;
+  }
+}
+
+.mb-1-6, .my-1-6 {
+  margin-bottom: 1.6rem;
+}
+/* achivements */
+/* Styles for the achievements section */
+.achievements {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.achievements h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover img {
+  opacity: 0.8;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .about-section h2 {
+    font-size: 1.6em;
+  }
+
+  .content {
+    display: block;
+  }
+
+  .left-column,
+  .image-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .secondary-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .bullet-list {
+    padding-left: 20px;
+  }
+
+  .card {
+    margin: 10px 0;
+  }
+
+  .timeline-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .timeline-box img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .timeline-box .year {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 10px;
+  }
+
+  .lead {
+    width: 100%;
+    margin-left: 0;
+    font-size: 1em;
+  }
+
+  .team .col-lg-3 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .team .col-lg-3 img {
+    height: auto;
+  }
+
+  .team .card-content h6 {
+    font-size: 1.1em;
+  }
+
+  .team .card-content p {
+    font-size: 0.9em;
+  }
+
+  .team .icon-sm {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .card-content h3 {
+    font-size: 1em;
+  }
+
+  .timeline-box h3 {
+    font-size: 1.1em;
+  }
+
+  .timeline-box p {
+    font-size: 0.9em;
+  }
+
+  .timeline-box .year {
+    font-size: 1em;
+  }
+
+  .team .col-lg-3 {
+    width: 100%;
+  }
+
+  .team .col-lg-3 img {
+    height: 230px;
+  }
+}
+
+@media (max-width: 360px) {
+  .subheading {
+    font-size: 0.9em;
+  }
+
+  .team .col-lg-3 {
+    width: 100%;
+  }
+
+  .team .card-content p {
+    font-size: 0.8em;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+}
+  </style>
+<body>
+     <!-- Top Bar -->
+     <div class="top-bar" style="margin-top: -28px;">
+      <div class="container">
+          <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+              <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+          </div>
+          <div class="social-links">
+              <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+              <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="sticky-header">
+      <div class="container">
+          <div class="logo">
+              <h1 style="font-weight: bold;">
+                  <a href="index.html">EchoScan Solutions</a>
+              </h1>
+          </div>
+          <nav>
+              <ul class="nav-links">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="team.html">Team</a></li>
+                  <li><a href="appointment.html">Appointment</a></li>
+                  <li><a href="blog.html">Blog</a></li>
+                  <li><a href="resources.html">Resources</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="faq.html">FAQ</a></li>
+                  <li><a href="dashboard.html">Dashboard</a></li>
+              </ul>
+              <button class="hamburger">
+                  <i class="fas fa-bars"></i>
+              </button>
+          </nav>
+      </div>
+  </header>
+  <section class="about-section">
+    <div class="container">
+      <h2 style="font-weight: 900;">About Us</h2>
+      <p class="subheading">
+        Dedicated to advancing diagnostic imaging for better patient care and precision. At the heart of modern healthcare, radiology plays a critical role in diagnosing and treating a wide range of medical conditions. With technological advancements continuously reshaping the field, we are committed to integrating state-of-the-art diagnostic imaging technologies that ensure accurate, efficient, and precise diagnoses. From traditional X-rays to advanced modalities such as MRI, CT scans, and ultrasound, our practice embraces innovation to provide the highest quality of patient care.
+      </p>
+  
+      <div class="content">
+        <!-- Left Column -->
+        <div class="left-column">
+          <h3>Empowering Healthcare Through Advanced Radiology. Continuous advancements in imaging reduce radiation exposure, enhancing patient safety.</h3>
+          <img src="about1.jpg" alt="Radiology Equipment" class="main-image">
+          <p>
+            At the forefront of diagnostic imaging, we leverage cutting-edge radiology technology to enhance patient care. From X-rays to advanced MRI and CT scans, our goal is to provide accurate and timely insights for healthcare providers.
+            Our expert radiologists work closely with medical teams, ensuring a seamless process from diagnosis to treatment. We prioritize innovation, precision, and compassionate care in every step of our services.
+          </p>
+         
+        </div>
+  
+        <!-- Image Section -->
+        <div class="image-section">
+          <div class="right-column">
+            <img src="about2.jpg" alt="Radiology Team Collaboration" class="secondary-image">
+          </div>
+  <br>
+          <!-- Bullet Points -->
+          <ul class="bullet-list">
+            <li>State-of-the-art imaging technology for accurate diagnosis.</li>
+            <li>Expert radiologists dedicated to quality and precision.</li>
+            <li>Comprehensive imaging solutions for a wide range of conditions.</li>
+            <li>Radiology ensures a patient-centered approach by offering faster.</li>
+          </ul>
+          <p style="text-align: left;">Radiology is a branch of medicine that uses imaging techniques to visualize the internal structures of the body. These images assist in diagnosing, monitoring, and treating various medical conditions. Radiology bridges the gap between clinical observations and precise diagnoses.  AI is revolutionizing radiology by assisting in image analysis, pattern recognition, and speeding up diagnostics. AI algorithms can detect anomalies in images with exceptional accuracy, aiding radiologists in decision-making.  Advanced imaging technologies like 3D reconstructions and virtual reality help doctors visualize complex structures, aiding in surgical planning and education.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <section id="team" class="section bg-gray-100">
+    <div class="container">
+      <div class="row section-heading justify-content-center text-center">
+        <div class="col-lg-8 col-xl-6">
+          <h3 class="h1 bg-primary-after after-50px pb-3 mb-3" style="font-weight: 800;">Our Radiologists</h3>
+          <div class="lead">
+            Meet our team of expert radiologists who bring precision and expertise to every diagnostic image.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Radiologist 1 -->
+        <div class="col-lg-3 col-sm-6 my-3">
+          <div class="hover-top-in text-center">
+            <div class="overflow-hidden z-index-1 position-relative px-5">
+              <img class="rounded-circle border border-5 border-white shadow" src="team1.jpg" title="Dr. Emily Carter" alt="Dr. Emily Carter" style="height: 286px;">
+            </div>
+            <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
+              <h6 class="fw-700 dark-color mb-1">Dr. Emily Carter</h6>
+              <small>Lead Radiologist Specialist</small>
+              <p class="mt-2">
+                With over 15 years of experience, Dr. Carter specializes in advanced MRI and CT imaging, ensuring precision and accuracy in diagnostics.
+              </p>
+              <div class="pt-2">
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-facebook"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-twitter"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.linkedin.com/login"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Radiologist 2 -->
+        <div class="col-lg-3 col-sm-6 my-3">
+          <div class="hover-top-in text-center">
+            <div class="overflow-hidden z-index-1 position-relative px-5">
+              <img class="rounded-circle border border-5 border-white shadow" src="team2.jpg" title="Dr. Michael Adams" alt="Dr. Michael Adams" style="height: 286px;">
+            </div>
+            <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
+              <h6 class="fw-700 dark-color mb-1">Dr. Michael Adams</h6>
+              <small>Interventional Radiologist</small>
+              <p class="mt-2">
+                Dr. Adams is an expert in minimally invasive, image-guided procedures, specializing in vascular and cancer treatments and women's health.
+              </p>
+              <div class="pt-2">
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-facebook"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-twitter"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.linkedin.com/login"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Radiologist 3 -->
+        <div class="col-lg-3 col-sm-6 my-3">
+          <div class="hover-top-in text-center">
+            <div class="overflow-hidden z-index-1 position-relative px-5">
+              <img class="rounded-circle border border-5 border-white shadow" src="team3.jpg" title="Dr. Sarah Lee" alt="Dr. Sarah Lee" style="height: 286px;">
+            </div>
+            <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
+              <h6 class="fw-700 dark-color mb-1">Dr. Sarah Lee</h6>
+              <small>Ultrasound & Women's Imaging Specialist</small>
+              <p class="mt-2">
+                Dr. Lee has a decade of experience in ultrasound imaging, focusing on prenatal diagnostics and women's health.
+              </p>
+              <div class="pt-2">
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-facebook"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-twitter"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.linkedin.com/login"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Radiologist 4 -->
+        <div class="col-lg-3 col-sm-6 my-3">
+          <div class="hover-top-in text-center">
+            <div class="overflow-hidden z-index-1 position-relative px-5">
+              <img class="rounded-circle border border-5 border-white shadow" src="team4.jpg" title="Dr. Raj Patel" alt="Dr. Raj Patel" style="height: 286px;">
+            </div>
+            <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
+              <h6 class="fw-700 dark-color mb-1">Dr. Raj Patel</h6>
+              <small>Nuclear Medicine Specialist</small>
+              <p class="mt-2">
+                A pioneer in nuclear medicine, Dr. Patel specializes in PET and SPECT scans, providing advanced insights into complex conditions.
+              </p>
+              <div class="pt-2">
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-facebook"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.facebook.com/login.php/"><i class="bi bi-twitter"></i></a>
+                <a class="icon-sm bg-primary rounded-circle me-1 text-white" href="https://www.linkedin.com/login"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+<!-- achivements -->
+<section class="achievements">
+  <h2 style="font-weight: 800;">Our Achievements</h2>
+  <!-- <div class="lead" style="width: 932px;
+    margin-left: 198px;">
+    Over the years, our radiology practice has earned numerous accolades and certifications that underscore our commitment to providing the highest quality of care and diagnostic imaging.
+  </div> -->
+ <br>
+  <div class="cards-container">
+    <div class="card">
+      <img src="award1.jpg" alt="Award 1">
+      <div class="card-content">
+        <h3>Award for Excellence</h3>
+        <p>Recognized for outstanding radiology services in 2023.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="award2.jpg" alt="Certification 1" style="width: 300px;">
+      <div class="card-content">
+        <h3>ISO 9001 Certification</h3>
+        <p>Achieved ISO certification for quality management.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="award3.jpg" alt="Milestone 1">
+      <div class="card-content">
+        <h3>10,000+ Patients Served</h3>
+        <p>Successfully served over 10,000 patients in 2023.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- time line section -->
+  <section>
+    <div class="container">
+      <div class="section-heading wow fadeIn">
+        <center><h2 style="font-weight: 900;">Our Radiology Practice History</h2></center>
+        <!-- <div class="lead" style="width: 932px;
+        margin-left: 198px;">
+        Our radiology practice has a long-standing legacy of providing exceptional medical imaging services, grounded in innovation, precision, and patient care. 
+      </div> -->
+        
+        <div class="heading-separator"></div>
+      </div>
+      <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+ 
+
+      <div class="row">
+        <div class="history-wrapper">
+          <!-- Foundation -->
+          <div class="timeline-box one-of-two">
+            <img class="mb-1-6 rounded" src="team6.jpg" alt="Radiology practice foundation">
+            <div class="content">
+              <h3 class="h4 mb-2 mb-md-3">Establishment of Our Radiology Practice</h3>
+              <p class="mb-0">
+                Our journey began in 1995 with a small radiology clinic dedicated to delivering high-quality diagnostic imaging. Starting with basic X-ray services, we laid the foundation for our patient-centered approach. Today, EchoScan Solutions is a leader in the field, renowned for our expertise, state-of-the-art equipment, and a team of highly skilled radiologists and technicians. Our services extend across multiple locations, ensuring accessibility and convenience for patients in need of precise and timely diagnostics.
+              </p>
+            </div>
+            <div class="year">1995</div>
+          </div>
+          
+          <!-- Expansion of Services -->
+          <div class="timeline-box one-of-two">
+            <img class="mb-1-6 rounded" src="team7.jpg" alt="Expansion of services">
+            <div class="content">
+              <h3 class="h4 mb-2 mb-md-3">Introduction of Advanced Imaging Modalities</h3>
+              <p class="mb-0">
+                By 2003, we expanded our services to include MRI and CT scans, enabling more precise diagnoses. We also increased our team to include six experienced radiologists and technologists. Over the years, we have grown into a trusted name in radiology, expanding our offerings to include advanced imaging technologies such as MRI, CT scans, and ultrasound. With each step forward, we have remained committed to integrating the latest advancements in medical imaging to enhance diagnostic accuracy and patient care.
+              </p>
+              </p>
+            </div>
+            <div class="year">2003</div>
+          </div>
+  
+          <!-- Recognition -->
+          <div class="timeline-box one-of-two">
+            <img class="mb-1-6 rounded" src="team8.jpg" alt="Recognition">
+            <div class="content">
+              <h3 class="h4 mb-2 mb-md-3">National Recognition</h3>
+              <p class="mb-0">
+                In 2018, our practice received the prestigious *National Radiology Excellence Award* for our cutting-edge diagnostic techniques and commitment to patient care. Our unwavering commitment to innovation, quality, and compassionate care has earned us numerous accolades and the trust of healthcare professionals and patients alike. From our humble beginnings, we have continually evolved to meet the ever-changing needs of the medical community, always prioritizing the well-being of our patients.
+              </p>
+            </div>
+            <div class="year">2018</div>
+          </div>
+  
+          <!-- Global Expansion -->
+          <div class="timeline-box one-of-two">
+            <img class="mb-1-6 rounded" src="team9.jpg" alt="Global expansion">
+            <div class="content">
+              <h3 class="h4 mb-2 mb-md-3">Opening International Branches</h3>
+              <p class="mb-0">
+                By 2021, we expanded our presence globally, establishing partnerships and branches in Europe and Asia. This marked our evolution into a leading provider of radiology services worldwide. As we look to the future, EchoScan Solutions remains dedicated to pushing the boundaries of diagnostic imaging, embracing new technologies, and upholding our mission to deliver excellence in radiology services.
+              </p>
+            </div>
+            <div class="year">2021</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+    <div class="container">
+        <div class="footer-row">
+            <!-- Our Office -->
+            <div class="footer-column">
+                <h4>Office Address</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://google.com" target="_blank" aria-label="Google">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Services -->
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h4>Discover More</h4>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-column">
+                <h4>Newsletter</h4>
+                <p>Stay updated with the latest news and updates.</p>
+                <form id="newsletter-form">
+                    <input type="email" id="email" placeholder="Your email" required>
+                    <button type="submit">SignUp</button>
+                </form>
+                <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                    Successful!</div>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+
+  
+</body>
+
+</html>

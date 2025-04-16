@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoScan Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="sub.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <br>
+    <!-- Service Detail Page -->
+    <div class="detail-container">
+      <div class="header-section">
+          <img src="s50.jpg" alt="Pediatric Radiology Services" class="image-box">
+          <div class="info-box">
+              <h1 class="main-title">Pediatric Radiology Services</h1>
+              <p class="short-description">
+                  Pediatric radiology is a specialized field of medical imaging focused on diagnosing and treating children’s health conditions. Our pediatric radiology services are tailored to provide safe and accurate imaging for children, with special attention to their unique needs and sensitivities. Using state-of-the-art equipment and a gentle approach, we ensure minimal radiation exposure while obtaining high-quality images to assist in diagnosing a wide range of pediatric conditions. Our team of pediatric radiologists is dedicated to delivering compassionate care and providing essential information for your child's health and treatment.
+              </p>
+          </div>
+      </div>
+  
+      <div class="description-section">
+          <h2>Description</h2>
+          <p>
+              Pediatric radiology services involve advanced imaging techniques used to diagnose a variety of childhood conditions such as fractures, tumors, infections, and developmental issues. These imaging tools, including X-rays, ultrasound, CT scans, and MRI, help doctors detect and treat medical conditions early, ensuring the best possible outcomes for young patients.
+          </p>
+          <p>
+              Our pediatric radiology procedures are designed to be as quick and comfortable as possible for children. With our compassionate, child-friendly environment and highly skilled team, we aim to reduce anxiety and ensure that your child’s imaging experience is both positive and effective.
+          </p>
+      </div>
+  
+      <!-- Accordion Section (Row-wise) -->
+      <div class="accordion-wrapper">
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-procedures"></i>
+                  <span>Procedure Details</span>
+              </button>
+              <div class="accordion-content">
+                  <p>Pediatric radiology procedures often involve positioning the child in specific ways for imaging while ensuring their comfort and safety. The process may include various imaging techniques, such as X-rays or MRI scans, to get the most accurate results. Each procedure is carefully planned to ensure minimal discomfort and exposure to radiation.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-plug"></i>
+                  <span>Equipment Used</span>
+              </button>
+              <div class="accordion-content">
+                  <p>We use advanced imaging equipment such as digital X-ray machines, pediatric MRI machines, and ultrasound technology. These machines are specially designed for pediatric use, ensuring that they deliver high-resolution images with the lowest possible dose of radiation. All equipment is carefully calibrated to accommodate the needs of growing children.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-heart"></i>
+                  <span>Patient Benefits</span>
+              </button>
+              <div class="accordion-content">
+                  <p>Pediatric radiology services provide the benefit of early detection and diagnosis, helping to address medical concerns in their earliest stages. With reduced radiation exposure and a child-friendly approach, these services are safe, non-invasive, and essential for effective treatment. Our pediatric radiologists ensure accurate diagnoses, which are critical for designing the best care plans for young patients.</p>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Booking Section -->
+      <div class="booking-wrapper">
+          <h2>Book a Pediatric Radiology Consultation</h2>
+          <a href="appointment.html" class="book-button">Schedule Now</a>
+      </div>
+  
+      <!-- Booking Form Modal -->
+      <div id="bookingModal" class="modal-wrapper">
+          <div class="modal-box">
+              <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+              <h2>Schedule Your Pediatric Radiology Appointment</h2>
+              <form id="bookingForm">
+                  <label for="name">Full Name:</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                  <div class="error-message" id="name-error"></div>
+  
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                  <div class="error-message" id="email-error"></div>
+  
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required pattern="^[0-9]{10}$">
+                  <div class="error-message" id="phone-error"></div>
+  
+                  <label for="date">Preferred Date:</label>
+                  <input type="date" id="date" name="date" required>
+                  <div class="error-message" id="date-error"></div>
+  
+                  <label for="time">Preferred Time:</label>
+                  <input type="time" id="time" name="time" required>
+                  <div class="error-message" id="time-error"></div>
+                  <button type="submit" class="submit-btn">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form" style="flex-direction: row;">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="sub.js"></script>
+</body>
+
+</html>

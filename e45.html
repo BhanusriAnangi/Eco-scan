@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoScan Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="sub.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <br>
+    <!-- Service Detail Page -->
+    <div class="detail-container">
+      <div class="header-section">
+          <img src="s45.jpg" alt="Abdominal X-ray" class="image-box">
+          <div class="info-box">
+              <h1 class="main-title">Abdominal X-ray</h1>
+              <p class="short-description">
+                  An Abdominal X-ray is a diagnostic imaging procedure used to examine the organs and structures within the abdominal cavity. It helps detect a wide range of conditions, including blockages, infections, and abnormalities in the digestive system. This non-invasive procedure is often used in emergency settings to assess conditions like bowel obstructions, kidney stones, and certain types of infections, providing vital information for diagnosis and treatment.  Additionally, Abdominal X-rays can be useful in monitoring the progress of certain conditions, like the presence of gas or air in the intestines, which may indicate issues such as perforation or gastrointestinal problems. While an Abdominal X-ray provides valuable insights, it is often complemented by other imaging techniques like CT scans or ultrasounds for a more comprehensive evaluation. 
+              </p>
+          </div>
+      </div>
+  
+      <div class="description-section">
+          <h2>Description</h2>
+          <p>
+              The Abdominal X-ray provides detailed images of the abdomen, enabling doctors to assess the position and condition of various organs, such as the stomach, liver, intestines, and kidneys. It is particularly useful in detecting conditions like bowel obstructions, perforations, and organ enlargement. The X-ray uses a small dose of radiation to generate clear images of these structures, allowing for quick and accurate assessments.
+          </p>
+          <p>
+              The procedure is quick and non-invasive, typically requiring the patient to lie on their back or side while the X-ray machine captures images from different angles. The images produced can help identify issues with the digestive system, abdominal organs, or any foreign objects that may be present.
+          </p>
+      </div>
+  
+      <!-- Accordion Section (Row-wise) -->
+      <div class="accordion-wrapper">
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-procedures"></i>
+                  <span>Procedure Details</span>
+              </button>
+              <div class="accordion-content">
+                  <p>The Abdominal X-ray involves the patient lying on the examination table while the X-ray machine captures images of the abdominal region. The procedure may require the patient to hold their breath momentarily while the images are taken. The images help doctors assess conditions like bowel obstructions, gas patterns, and the presence of foreign bodies.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-plug"></i>
+                  <span>Equipment Used</span>
+              </button>
+              <div class="accordion-content">
+                  <p>The primary equipment used for an Abdominal X-ray is an X-ray machine, which emits controlled radiation to capture images of the abdomen. The images are then processed digitally to provide high-resolution views of the abdominal organs, bones, and surrounding structures.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-heart"></i>
+                  <span>Patient Benefits</span>
+              </button>
+              <div class="accordion-content">
+                  <p>Abdominal X-rays offer benefits such as fast and accurate diagnosis, non-invasive imaging, and the ability to detect conditions like bowel obstructions, foreign objects, and certain types of infections. They provide critical insights into abdominal health, helping healthcare providers recommend the appropriate course of treatment.</p>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Booking Section -->
+      <div class="booking-wrapper">
+          <h2>Book a Consultation</h2>
+          <a href="appointment.html" class="book-button">Schedule Now</a>
+      </div>
+  
+      <!-- Booking Form Modal -->
+      <div id="bookingModal" class="modal-wrapper">
+          <div class="modal-box">
+              <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+              <h2>Schedule Your Abdominal X-ray Appointment</h2>
+              <form id="bookingForm">
+                  <label for="name">Full Name:</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                  <div class="error-message" id="name-error"></div>
+  
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                  <div class="error-message" id="email-error"></div>
+  
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required pattern="^[0-9]{10}$">
+                  <div class="error-message" id="phone-error"></div>
+  
+                  <label for="date">Preferred Date:</label>
+                  <input type="date" id="date" name="date" required>
+                  <div class="error-message" id="date-error"></div>
+  
+                  <label for="time">Preferred Time:</label>
+                  <input type="time" id="time" name="time" required>
+                  <div class="error-message" id="time-error"></div>
+                  <button type="submit" class="submit-btn">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  
+  
+    
+
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form" style="flex-direction: row;">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="sub.js"></script>
+</body>
+
+</html>

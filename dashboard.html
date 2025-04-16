@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: rgb(249, 250, 251);
+            color: #1a1a1a;
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling on small screens */
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: white;
+            border-right: 1px solid #e5e7eb;
+            position: fixed;
+            height: 100vh;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-header h1 {
+            color: #4f46e5;
+            font-size: 1.25rem;
+        }
+
+        .sidebar-nav {
+            padding: 1.5rem 1rem;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .nav-item.active {
+            background-color: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .nav-item i {
+            margin-right: 0.75rem;
+        }
+
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            background: none;
+            color: #4b5563;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .logout-btn:hover {
+            color: #dc2626;
+        }
+
+        .logout-btn i {
+            margin-right: 0.75rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 2rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            height: 64px;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #4b5563;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .notification-btn {
+            position: relative;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #4b5563;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background-color: #dc2626;
+            border-radius: 50%;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .profile img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        /* Main Content Section */
+        .dashboard-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        button.btn {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button.btn:hover {
+            background-color: #005cbf;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th,
+        table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        table td button {
+            padding: 0.5rem 1rem;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        table td button:hover {
+            background-color: #c9302c;
+        }
+
+        /* Error Styling */
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .error-input {
+            border-color: red;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+            }
+
+            .nav-right {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .profile span {
+                display: none;
+            }
+
+            .top-nav {
+                padding: 0.5rem;
+            }
+
+            .nav-right {
+                margin-left: 0;
+            }
+
+            .nav-item {
+                padding: 0.5rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .dashboard-section {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .profile span {
+                display: none;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .nav-item {
+                padding: 0.5rem;
+            }
+
+            .dashboard-section {
+                padding: 1rem;
+            }
+
+            table th,
+            table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            table td button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" style="text-decoration: none;">
+                    <h1>EchoScan Solution</h1>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i data-lucide="user"></i>
+                    Profile
+                </a>
+                <a href="appointment1.html" class="nav-item">
+                    <i data-lucide="calendar"></i>
+                    Appointments
+                </a>
+                <a href="session.html" class="nav-item">
+                    <i data-lucide="file-text"></i>
+                    Session Notes
+                </a>
+                <a href="notification.html" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    Notification
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="home"></i>
+                    Home
+                </a>
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <!-- <header class="top-nav">
+                <button class="menu-btn" id="menuBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="nav-right">
+                    <span>John Doe</span>
+                    <a href="notification.html"><button class="notification-btn">
+                            <i data-lucide="bell"></i>
+                            <span class="notification-dot"></span>
+                        </button></a>
+
+                </div>
+            </header> -->
+
+            <div class="main-content2">
+                <!-- Profile Management Section -->
+                <section id="profile" class="dashboard-section">
+                    <h2>Profile Management</h2>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </form>
+                </section>
+
+                <!-- Preferences Section -->
+                <section id="preferences" class="dashboard-section">
+                    <h2>Preferences</h2>
+                    <form id="preferencesForm" class="preferences-form">
+                        <div class="form-group">
+                            <label for="notifications">Notification Preferences:</label>
+                            <select id="notifications" name="notifications">
+                                <option value="email">Email</option>
+                                <option value="sms">SMS</option>
+                                <option value="push">Push Notifications</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Appointment Times:</label>
+                            <select id="preferredTime" name="preferredTime">
+                                <option value="9-12">9 AM - 12 PM</option>
+                                <option value="12-3">12 PM - 3 PM</option>
+                                <option value="3-6">3 PM - 6 PM</option>
+                                <option value="6-9">6 PM - 9 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredDays">Preferred Appointment Days:</label>
+                            <select id="preferredDays" name="preferredDays">
+                                <option value="monday">Monday</option>
+                                <option value="tuesday">Tuesday</option>
+                                <option value="wednesday">Wednesday</option>
+                                <option value="thursday">Thursday</option>
+                                <option value="friday">Friday</option>
+                                <option value="saturday">Saturday</option>
+                                <option value="sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="radiologist">Preferred Radiologist:</label>
+                            <select id="radiologist" name="radiologist">
+                                <option value="dr-smith">Dr. Smith</option>
+                                <option value="dr-jones">Dr. Jones</option>
+                                <option value="dr-taylor">Dr. Taylor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="services">Preferred Services:</label>
+                            <textarea id="services" name="services" placeholder="e.g., MRI, Ultrasound"></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn">Save Preferences</button>
+                    </form>
+                </section>
+
+
+                <!-- Appointments Section -->
+                <section id="appointments" class="dashboard-section">
+                    <h2>Manage Appointments</h2>
+                    <table class="appointment-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Service</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointmentTable">
+                            <!-- Appointment rows added dynamically -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // // Sample data
+        // const appointments = [
+        //     { id: 1, title: 'General Checkup', doctor: 'Dr. Sarah Wilson', date: '2024-03-20', time: '10:00 AM' },
+        //     { id: 2, title: 'Dental Cleaning', doctor: 'Dr. Michael Chen', date: '2024-03-22', time: '2:30 PM' }
+        // ];
+
+        // const notes = [
+        //     { id: 1, title: 'Therapy Session Notes', date: '2024-03-15', doctor: 'Dr. Emily Brown' },
+        //     { id: 2, title: 'Treatment Plan Update', date: '2024-03-10', doctor: 'Dr. Sarah Wilson' }
+        // ];
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.querySelector('.sidebar');
+
+        // Toggle sidebar visibility when menu button is clicked
+        menuBtn.addEventListener('click', (e) => {
+            sidebar.classList.toggle('active');
+            // Prevent the click from propagating to the document click handler
+            e.stopPropagation();
+        });
+
+        // Close sidebar when clicking outside of it on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                // Check if the click target is neither the sidebar nor the menu button
+                if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Optional: Close sidebar when ESC key is pressed
+        document.addEventListener('keydown', (e) => {
+            if (window.innerWidth <= 768 && e.key === 'Escape') {
+                sidebar.classList.remove('active');
+            }
+        });
+
+
+        // Render appointments
+        //     function renderAppointments() {
+        //         const appointmentsList = document.getElementById('appointmentsList');
+        //         appointmentsList.innerHTML = appointments.map(appointment => `
+        //     <div class="appointment-item">
+        //         <div class="item-left">
+        //             <div class="item-icon blue">
+        //                 <i data-lucide="calendar"></i>
+        //             </div>
+        //             <div class="item-details">
+        //                 <h3>${appointment.title}</h3>
+        //                 <p>${appointment.doctor}</p>
+        //             </div>
+        //         </div>
+        //         <div class="item-right">
+        //             <p class="date">${appointment.date}</p>
+        //             <p class="time">${appointment.time}</p>
+        //         </div>
+        //     </div>
+        // `).join('');
+        //         lucide.createIcons();
+        //     }
+
+        // Render notes
+        //     function renderNotes() {
+        //         const notesList = document.getElementById('notesList');
+        //         notesList.innerHTML = notes.map(note => `
+        //     <div class="note-item">
+        //         <div class="item-left">
+        //             <div class="item-icon purple">
+        //                 <i data-lucide="file-text"></i>
+        //             </div>
+        //             <div class="item-details">
+        //                 <h3>${note.title}</h3>
+        //                 <p>${note.doctor}</p>
+        //             </div>
+        //         </div>
+        //         <div class="item-right">
+        //             <p class="date">${note.date}</p>
+        //         </div>
+        //     </div>
+        // `).join('');
+        //         lucide.createIcons();
+        //     }
+
+        // Initialize the dashboard
+        // function initDashboard() {
+        //     renderAppointments();
+        //     renderNotes();
+        // }
+
+        // Run initialization
+        // document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+    <script>
+        // Profile Form Submission
+        document.getElementById("profileForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name");
+            const phone = document.getElementById("phone");
+            const email = document.getElementById("email");
+            const address = document.getElementById("address");
+
+            resetErrors([name, phone, email, address]);
+
+            let isValid = true;
+
+            if (!/^[a-zA-Z\s]+$/.test(name.value)) {
+                showError(name, "Name should only contain alphabets.");
+                isValid = false;
+            }
+
+            if (!/^\d{10}$/.test(phone.value)) {
+                showError(phone, "Phone number must be exactly 10 digits.");
+                isValid = false;
+            }
+
+            if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.value)) {
+                showError(email, "Please enter a valid email address.");
+                isValid = false;
+            }
+
+            if (address.value.trim() === "") {
+                showError(address, "Address cannot be empty.");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Profile updated successfully!");
+
+                // Reset form fields
+                document.getElementById("profileForm").reset();
+
+                // Refresh profile section (example: fetch new data or reload part of the UI)
+                refreshProfileSection();
+            }
+        });
+
+        // Ensure that the phone number input only accepts 10 digits
+        document.getElementById("phone").addEventListener("input", function () {
+            let phoneValue = this.value;
+            // Remove any non-numeric characters
+            phoneValue = phoneValue.replace(/\D/g, '');
+            // Ensure only 10 digits are allowed
+            if (phoneValue.length > 10) {
+                phoneValue = phoneValue.slice(0, 10);
+            }
+            this.value = phoneValue;
+        });
+
+        function resetErrors(fields) {
+            fields.forEach(field => {
+                field.classList.remove("error");
+                const errorElement = field.nextElementSibling;
+                if (errorElement) {
+                    errorElement.textContent = "";
+                }
+            });
+        }
+
+        function showError(field, message) {
+            field.classList.add("error");
+            const errorElement = field.nextElementSibling;
+            if (errorElement) {
+                errorElement.textContent = message;
+            }
+        }
+
+        function refreshProfileSection() {
+            // Logic to refresh the profile section
+            // Example: Fetch updated profile data and render it
+            console.log("Refreshing profile section...");
+            // Fetch data via API or update the UI dynamically here
+        }
+
+
+        // Preferences Form Submission
+        document.getElementById("preferencesForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const notification = document.getElementById("notifications");
+            const preferredTime = document.getElementById("preferredTime");
+            const preferredDays = document.getElementById("preferredDays");
+            const radiologist = document.getElementById("radiologist");
+            const services = document.getElementById("services");
+
+            resetErrors([notification, preferredTime, preferredDays, radiologist, services]);
+
+            let isValid = true;
+
+            // Check notification preference
+            if (!notification.value) {
+                showError(notification, "Please select a notification preference.");
+                isValid = false;
+            }
+
+            // Check preferred appointment time
+            if (!preferredTime.value) {
+                showError(preferredTime, "Please select a preferred appointment time.");
+                isValid = false;
+            }
+
+            // Check preferred appointment days
+            if (!preferredDays.value) {
+                showError(preferredDays, "Please select a preferred appointment day.");
+                isValid = false;
+            }
+
+            // Check radiologist selection
+            if (!radiologist.value) {
+                showError(radiologist, "Please select a radiologist.");
+                isValid = false;
+            }
+
+            // Check services input
+            if (services.value.trim() === "") {
+                showError(services, "Preferred services cannot be empty.");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Preferences updated successfully!");
+
+                // Reset form fields
+                document.getElementById("preferencesForm").reset();
+
+                // Refresh preferences section (if needed)
+                refreshPreferencesSection();
+            }
+        });
+
+        // Helper Functions
+        function resetErrors(fields) {
+            fields.forEach((field) => {
+                const errorElement = field.nextElementSibling;
+                if (errorElement && errorElement.classList.contains("error")) {
+                    errorElement.remove();
+                }
+                field.classList.remove("error-input");
+            });
+        }
+
+        function showError(field, message) {
+            const error = document.createElement("div");
+            error.className = "error";
+            error.innerText = message;
+            field.classList.add("error-input");
+            field.parentElement.appendChild(error);
+        }
+
+        function refreshPreferencesSection() {
+            console.log("Refreshing preferences section...");
+        }
+
+
+        // Restrict Numeric Inputs for Name
+        document.getElementById("name").addEventListener("input", function () {
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+        });
+
+        // Restrict Text Inputs for Phone
+        document.getElementById("phone").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, "");
+        });
+
+        // Example appointments data
+        let appointments = [
+            { date: "2024-12-10", time: "9:00 AM", service: "X-ray Chest" },
+            { date: "2024-12-12", time: "11:00 AM", service: "Ultrasound Abdomen" },
+            { date: "2024-12-15", time: "2:30 PM", service: "Mammogram" },
+            { date: "2024-12-20", time: "4:00 PM", service: "PET Scan" }
+        ];
+
+
+        // Function to refresh appointment table
+        function refreshAppointmentTable() {
+            const appointmentTable = document.getElementById("appointmentTable");
+            appointmentTable.innerHTML = ""; // Clear existing rows
+
+            appointments.forEach((appointment, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${appointment.date}</td>
+                    <td>${appointment.time}</td>
+                    <td>${appointment.service}</td>
+                    <td>
+                      <button onclick="cancelAppointment(${index})">Cancel</button>
+                    </td>
+                `;
+                appointmentTable.appendChild(row);
+            });
+
+            if (appointments.length === 0) {
+                const emptyRow = document.createElement("tr");
+                emptyRow.innerHTML = `<td colspan="4">No appointments scheduled.</td>`;
+                appointmentTable.appendChild(emptyRow);
+            }
+        }
+
+        // Cancel appointment function with validation
+        function cancelAppointment(index) {
+            if (index < 0 || index >= appointments.length) {
+                alert("Invalid appointment selection.");
+                return;
+            }
+
+            const confirmation = confirm(`Are you sure you want to cancel the appointment on ${appointments[index].date}?`);
+            if (confirmation) {
+                alert(`Appointment on ${appointments[index].date} cancelled.`);
+                appointments.splice(index, 1);
+                refreshAppointmentTable(); // Refresh the table dynamically
+            }
+        }
+
+        // Initial table population
+        refreshAppointmentTable();
+    </script>
+</body>
+
+</html>

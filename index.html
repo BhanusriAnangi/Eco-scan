@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoscan Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="script.js" defer></script>
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- video banner -->
+
+    <div class="video-banner">
+        <div class="video-slider">
+            <div class="video-slide active">
+                <video src="video1.mp4" autoplay muted loop></video>
+                <div class="overlay">
+                    <h1 class="typewriter" data-text="Advanced MRI Machines"></h1>
+                    <p>Experience precision diagnostics like never before.</p>
+                    <div class="cta-buttons">
+                        <a href="services.html" class="btn">Learn More</a>
+                        <a href="team.html" class="btn secondary">Our Team</a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide">
+                <video src="video2.mp4" autoplay muted loop></video>
+                <div class="overlay">
+                    <h1 class="typewriter" data-text="Cutting-Edge CT Scanners"></h1>
+                    <p>High-resolution imaging for accurate diagnosis.</p>
+                    <div class="cta-buttons">
+                        <a href="services.html" class="btn">Discover More</a>
+                        <a href="appointment.html" class="btn secondary">Make Appointment</a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide">
+                <video src="video3.mp4" autoplay muted loop></video>
+                <div class="overlay">
+                    <h1 class="typewriter" data-text="Portable X-Ray Machines"></h1>
+                    <p>Mobility and efficiency for every healthcare facility.</p>
+                    <div class="cta-buttons">
+                        <a href="service-detail.html" class="btn">Learn More</a>
+                        <a href="contact.html" class="btn secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- about us section -->
+
+    <section class="about-us">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="aboutus.jpg" alt="About Us Image" />
+            </div>
+            <div class="about-content">
+                <span class="badge">About Us</span>
+                <h2>We Help Our Clients To Grow Their Business</h2>
+                <p>
+                    Discover innovative strategies, professional guidance, and the best tools to achieve your business
+                    goals.
+                    Collaborate with us to unlock your organization's full potential.
+                </p>
+                <div class="tabs">
+                    <button class="tab active" data-tab="story">Story</button>
+                    <button class="tab" data-tab="mission">Mission</button>
+                    <button class="tab" data-tab="history">History</button>
+                </div>
+                <div class="tab-content active" id="story">
+                    <p>
+                        Our story began with a vision to empower businesses through cutting-edge solutions and
+                        client-focused services.
+                    </p>
+                </div>
+                <div class="tab-content" id="mission">
+                    <p>
+                        Our mission is to provide exceptional services, helping businesses grow with innovation and
+                        integrity.
+                    </p>
+                </div>
+                <div class="tab-content" id="history">
+                    <p>
+                        With years of experience, we've built a strong foundation to address unique challenges across
+                        various industries.
+                    </p>
+                </div>
+                <div class="learn-more">
+                    <a href="about.html" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- featured services -->
+
+
+    <section class="featured-services">
+        <h2 style="font-size: 35px; margin-bottom: 20px;">Feature services</h2>
+
+        <div class="services-container">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">💉</div>
+                <h3>CT Scans</h3>
+                <p>Advanced imaging technology for precise diagnostics.</p>
+                <a href="e2.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">🩻</div>
+                <h3>X-Rays</h3>
+                <p>High-quality imaging to assess bone and tissue health.</p>
+                <a href="e1.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>MRI</h3>
+                <p>Detailed internal imaging using magnetic resonance.</p>
+                <a href="e3.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">🩸</div>
+                <h3>Ultrasound</h3>
+                <p>Non-invasive imaging for real-time diagnostics.</p>
+                <a href="e4.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">📟</div>
+                <h3>PET Scans</h3>
+                <p>Innovative technology for advanced cancer diagnosis.</p>
+                <a href="e8.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">🩹</div>
+                <h3>Bone Density Test</h3>
+                <p>Precise measurement of bone strength and health.</p>
+                <a href="e7.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 7 -->
+            <div class="service-card">
+                <div class="service-icon">🦴</div>
+                <h3>Mammography</h3>
+                <p>Essential imaging for early detection of breast cancer.</p>
+                <a href="e6.html" class="service-link">Learn More</a>
+            </div>
+            <!-- Service 8 -->
+            <div class="service-card">
+                <div class="service-icon">🧬</div>
+                <h3>Pediatric Radiology Services</h3>
+                <p>CT imaging to evaluate sinus problems.</p>
+                <a href="e50.html" class="service-link">Learn More</a>
+            </div>
+        </div>
+        <div class="cta">
+            <a href="services.html" class="view-more-btn">View More Services</a>
+        </div>
+    </section>
+
+
+    <!-- appointment -->
+
+    <div class="appointment-banner">
+        <div class="appointment-overlay">
+            <h1>Schedule Your Appointment Now</h1>
+            <p>Easy, convenient, and tailored to fit your needs. Click below to book your slot!</p>
+            <a href="appointment.html" class="btn">Book Appointment</a>
+        </div>
+    </div>
+
+    <!-- team section -->
+    <section class="team-section">
+        <div class="section-header01">
+            <h2>Meet Our Team</h2>
+        </div>
+        <div class="team-container">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <a href="m1.html" class="team-member-link">
+                    <div class="team-member-image">
+                        <img src="rd.jpg" alt="Team Member 1">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>John Doe</h3>
+                        <p>Lead Radiologist</p>
+                        <p>Experienced radiologist specializing in MRI and CT scans, with a focus on neurological
+                            imaging.</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <a href="m2.html" class="team-member-link">
+                    <div class="team-member-image">
+                        <img src="rd2.jpg" alt="Team Member 2">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Jane Smith</h3>
+                        <p>Medical Technician</p>
+                        <p>
+                            Specializes in breast imaging and early detection of breast cancer,
+                            working closely with oncologists.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <a href="m3.html" class="team-member-link">
+                    <div class="team-member-image">
+                        <img src="rd3.jpg" alt="Team Member 3">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. Michael Lee</h3>
+                        <p>Head Nurse</p>
+                        <p>
+                            Pediatric radiologist with expertise in imaging for children,
+                            including ultrasound and X-rays.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <a href="m4.html" class="team-member-link">
+                    <div class="team-member-image">
+                        <img src="rd4.jpg" alt="Team Member 4">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Operations Manager</p>
+                        <p>Michael manages the operations of the department, ensuring everything runs smoothly and
+                            efficiently.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="view-team-button">
+            <a href="team.html" class="cta-button">View Team</a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- test -->
+
+    <div class="testimonial-section">
+        <div class="testimonial-header">
+            <h2>What Our Patients Say!</h2>
+        </div>
+        <div class="testimonials">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-box">
+                <div class="quote-icon">❝</div>
+                <p>
+                    The radiology team's prompt diagnosis gave me the clarity I needed. Their professionalism was
+                    outstanding!
+                </p>
+                <div class="testimonial-client">
+                    <img src="mem2.jpg" alt="Patient 1">
+                    <h4>Patient Name</h4>
+                    <span>Software Engineer</span>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-box">
+                <div class="quote-icon">❝</div>
+                <p>
+                    I appreciated the detailed explanations about my scans. The team was kind, supportive, and extremely
+                    knowledgeable.
+                </p>
+                <div class="testimonial-client">
+                    <img src="mem3.jpg" alt="Patient 2">
+                    <h4>Patient Name</h4>
+                    <span>Entrepreneur</span>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-box">
+                <div class="quote-icon">❝</div>
+                <p>
+                    The radiology center provided me with accurate and timely results. I highly recommend their services
+                    to anyone.
+                </p>
+                <div class="testimonial-client">
+                    <img src="mem1.jpg" alt="Patient 3">
+                    <h4>Patient Name</h4>
+                    <span>Teacher</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- contact -->
+
+    <div class="contact-banner">
+        <div class="contact-overlay">
+            <h1>Contact For More Information</h1>
+            <p>Reach out to us to schedule your next visit with ease. We're here to assist you!</p>
+            <a href="contact.html" class="btn">Contact Us</a>
+        </div>
+    </div>
+
+
+    <!-- blog -->
+    <section class="latest-news">
+        <div class="section-header">
+            <h2>Latest News & Updates</h2>
+            <p>Stay updated with our latest articles, news, and patient stories.</p>
+        </div>
+        <div class="blog-container">
+            <!-- Blog Post 1 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="Bd1.jpg" alt="Blog Post 1">
+                </div>
+                <div class="blog-content">
+                    <h3>Revolutionizing Diagnosis with AI in Radiology</h3>
+                    <p>Explore how artificial intelligence is improving accuracy and efficiency in radiology, including examples like AI-powered CT scan analysis and predictive diagnostics. </p>
+                    <a href="Bd1.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 2 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="B2.jpg" alt="Blog Post 2">
+                </div>
+                <div class="blog-content">
+                    <h3>Understanding MRI: A Patient's Guide</h3>
+                    <p>Break down the MRI process, its uses, and what patients can expect during the scan. Add visuals, benefits, and comparisons with other diagnostic techniques like X-rays or CT.</p>
+                    <a href="Bd2.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="b3.jpg" alt="Blog Post 3">
+                </div>
+                <div class="blog-content">
+                    <h3>Introducing 3D Mammography at Our Practice</h3>
+                    <p>Announce new equipment, explain its benefits over traditional mammograms, and provide patient testimonials to build trust.</p>
+                    <a href="Bd3.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 4 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="b4.jpg" alt="Blog Post 4">
+                </div>
+                <div class="blog-content">
+                    <h3>The Future of Interventional Radiology</h3>
+                    <p> Discuss minimally invasive treatments guided by imaging, such as biopsies or tumor ablations, with examples of how they improve.</p>
+                    <a href="Bd4.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="cta">
+            <a href="blog.html" class="view-more-btn">View All Articles</a>
+        </div>
+    </section>
+
+
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+    
+                </div>
+    
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Notes </title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lucide/icons"></script>
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: rgb(249, 250, 251);
+            color: #1a1a1a;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: white;
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .sidebar-header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-header h1 {
+            color: #4f46e5;
+            font-size: 1.25rem;
+        }
+
+        .sidebar-nav {
+            padding: 1.5rem 1rem;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .nav-item.active {
+            background-color: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .nav-item i {
+            margin-right: 0.75rem;
+        }
+
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            background: none;
+            color: #4b5563;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .logout-btn:hover {
+            color: #dc2626;
+        }
+
+        .logout-btn i {
+            margin-right: 0.75rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            height: 64px;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #4b5563;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1060px;
+        }
+
+        .notification-btn {
+            position: relative;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #4b5563;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background-color: #dc2626;
+            border-radius: 50%;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .profile img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            padding: 1.5rem;
+            gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .stat-title {
+            color: #4b5563;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .stat-icon {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.blue {
+            background-color: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .stat-icon.green {
+            background-color: #f0fdf4;
+            color: #22c55e;
+        }
+
+        .stat-icon.purple {
+            background-color: #faf5ff;
+            color: #a855f7;
+        }
+
+        .stat-icon.orange {
+            background-color: #fff7ed;
+            color: #f97316;
+        }
+
+        .stat-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 1rem;
+        }
+
+        .trend-up {
+            color: #22c55e;
+        }
+
+        .trend-down {
+            color: #dc2626;
+        }
+
+        .trend-value {
+            font-size: 0.875rem;
+            color: #22c55e;
+        }
+
+        .trend-value.down {
+            color: #dc2626;
+        }
+
+        .trend-period {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-left: 0.5rem;
+        }
+
+        /* Info Cards Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .card-header h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .appointment-item,
+        .note-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .appointment-item:last-child,
+        .note-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .item-icon {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-icon.blue {
+            background-color: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .item-icon.purple {
+            background-color: #faf5ff;
+            color: #a855f7;
+        }
+
+        .item-details h3 {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-details p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .item-right {
+            text-align: right;
+        }
+
+        .item-right .date {
+            font-weight: 500;
+        }
+
+        .item-right .time {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .profile span {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+        /* Notes Page Styles */
+        .notes-content {
+            padding: 2rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Treatment Plans */
+        .treatment-plans {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .plan-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .plan-progress {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            background: #e2e8f0;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 1rem;
+        }
+
+        /* Session Notes */
+        .session-notes {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            width: 300px;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .note-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Progress Timeline */
+        .progress-timeline {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline {
+            margin-top: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-secondary {
+            background: #f8fafc;
+            color: #475569;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar (same as index.html) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" style="text-decoration: none;">
+                    <h1>EchoScan Solution</h1>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i data-lucide="user"></i>
+                    Profile
+                </a>
+                <a href="appointment1.html" class="nav-item">
+                    <i data-lucide="calendar"></i>
+                    Appointments
+                </a>
+                <a href="session.html" class="nav-item active">
+                    <i data-lucide="file-text"></i>
+                    Session Notes
+                </a>
+                <a href="notification.html" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    Notification
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="home"></i>
+                    Home
+                </a>
+            </nav>
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- <header class="top-nav">
+                <button class="menu-btn" id="menuBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="nav-right">
+                    <span>John Doe</span>
+                    <a href="notification.html"><button class="notification-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-dot"></span>
+                    </button></a>
+                    
+                </div>
+            </header> -->
+
+            <div class="notes-content">
+                <!-- Treatment Plans -->
+                <div class="treatment-plans">
+                    <div class="section-header">
+                        <h2>Active Treatment Plans</h2>
+                        <!-- <button class="btn-primary">View All Plans</button> -->
+                    </div>
+                    <div class="plans-grid" id="treatmentPlans">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Session Notes -->
+                <div class="session-notes">
+                    <div class="section-header">
+                        <h2>Session Notes</h2>
+                        <!-- <div class="notes-actions">
+                            <input type="text" placeholder="Search notes..." class="search-input">
+                            <button class="btn-secondary">Filter</button>
+                            <button class="btn-primary">New Note</button>
+                        </div> -->
+                    </div>
+                    <div class="notes-grid" id="sessionNotes">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+
+
+
+                <!-- Progress Timeline -->
+                <div class="progress-timeline">
+                    <h2>Diagnostic report</h2>
+                    <div class="timeline" id="progressTimeline">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sample data
+        const treatmentPlansData = [
+            {
+                id: 1,
+                title: 'Physical Therapy Plan',
+                doctor: 'Dr. Emily Brown',
+                progress: 75,
+                startDate: '2024-02-15',
+                endDate: '2024-04-15'
+            },
+            {
+                id: 2,
+                title: 'Medication Schedule',
+                doctor: 'Dr. Sarah Wilson',
+                progress: 60,
+                startDate: '2024-03-01',
+                endDate: '2024-05-01'
+            }
+        ];
+
+        const sessionNotesData = [
+            {
+                id: 1,
+                title: 'Initial Consultation',
+                doctor: 'Dr. Sarah Wilson',
+                date: '2024-03-15',
+                content: 'Patient reported mild discomfort in the lower back region, mostly during certain movements. No previous history of injury. Advised basic exercises and stretches. A follow-up appointment scheduled for a more in-depth assessment.'
+            },
+            {
+                id: 2,
+                title: 'Follow-up Session',
+                doctor: 'Dr. Emily Brown',
+                date: '2024-03-10',
+                content: 'Significant improvement in mobility observed. Patient able to perform daily activities with minimal discomfort. Some tightness remains in the lower back. Introduced strengthening exercises and advised on posture corrections. Follow-up in two weeks.'
+            },
+            {
+                id: 3,
+                title: 'Progress Review',
+                doctor: 'Dr. Emily Brown',
+                date: '2024-04-01',
+                content: 'Patient showing noticeable recovery, with improved flexibility and strength. Mild discomfort experienced during intense activities but resolves quickly. Encouraged to continue strengthening exercises and begin low-impact aerobic activities. Reassessment in four weeks.'
+            },
+            {
+                id: 4,
+                title: 'Post-Treatment Evaluation',
+                doctor: 'Dr. Sarah Wilson',
+                date: '2024-04-10',
+                content: 'Patient is now fully mobile, no complaints of discomfort or stiffness. Strength and flexibility within normal range. Advised to continue with maintenance exercises to prevent recurrence. No further treatment needed at this stage.'
+            },
+            {
+                id: 5,
+                title: 'Post-Operative Check-up',
+                doctor: 'Dr. James Miller',
+                date: '2024-05-02',
+                content: 'Patient recovering well after surgery, with only mild swelling around the surgical site. Pain management is under control. Encouraged to perform light stretching exercises and gradually increase activity level. Follow-up scheduled for further evaluation.'
+            },
+            {
+                id: 6,
+                title: 'Final Consultation',
+                doctor: 'Dr. Sarah Wilson',
+                date: '2024-05-15',
+                content: 'No further issues, patient cleared for normal activities. All surgical sites have healed properly, and there are no signs of complications. Advised on long-term maintenance of physical health through regular exercise and stretching routines.'
+            }
+        ];
+
+
+        const timelineData =
+            [
+                {
+                    id: 1,
+                    date: "2024-03-15",
+                    title: "Initial Consultation",
+                    description: "Consultation and treatment plan created"
+                },
+                {
+                    id: 2,
+                    date: "2024-03-10",
+                    title: "Treatment Plan Adjustment",
+                    description: "Reviewed progress and adjusted treatment plan"
+                },
+                {
+                    id: 3,
+                    date: "2024-03-05",
+                    title: "Diagnostic Testing",
+                    description: "Performed diagnostic tests to assess condition"
+                },
+                {
+                    id: 4,
+                    date: "2024-03-12",
+                    title: "Test Results Received",
+                    description: "Received and analyzed diagnostic test results"
+                },
+                {
+                    id: 5,
+                    date: "2024-03-14",
+                    title: "Further Diagnostics Recommended",
+                    description: "Based on test results, additional diagnostics recommended for thorough assessment"
+                }
+            ]
+            ;
+
+        // Render treatment plans
+        function renderTreatmentPlans() {
+            const container = document.getElementById('treatmentPlans');
+            container.innerHTML = treatmentPlansData.map(plan => `
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div>
+                            <h3>${plan.title}</h3>
+                            <p>${plan.doctor}</p>
+                        </div>
+                        <span>${plan.progress}%</span>
+                    </div>
+                    <div class="plan-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${plan.progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="plan-dates">
+                        <span>Start: ${plan.startDate}</span>
+                        <span>End: ${plan.endDate}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render session notes
+        function renderSessionNotes() {
+            const container = document.getElementById('sessionNotes');
+            container.innerHTML = sessionNotesData.map(note => `
+                <div class="note-card">
+                    <div class="note-header">
+                        <h3>${note.title}</h3>
+                        <span>${note.date}</span>
+                    </div>
+                    <p>${note.doctor}</p>
+                    <p class="note-content">${note.content}</p>
+                </div>
+            `).join('');
+        }
+
+        // Render progress timeline
+        function renderTimeline() {
+            const container = document.getElementById('progressTimeline');
+            container.innerHTML = timelineData.map(item => `
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>${item.title}</h3>
+                        <p class="timeline-date">${item.date}</p>
+                        <p>${item.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTreatmentPlans();
+            renderSessionNotes();
+            renderTimeline();
+        });
+    </script>
+
+
+    <script>
+        // Mobile menu functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });</script>
+</body>
+
+</html>

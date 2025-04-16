@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoScan</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="faq.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <!-- Search Bar -->
+        <div class="faq-search-container">
+            <input type="text" id="faqSearch" class="faq-search" placeholder="Search FAQ...">
+        </div>
+
+        <div class="faq-container">
+            <!-- Red Middle Line -->
+            <div class="middle-line"></div>
+
+            <!-- Left Column -->
+            <div class="faq-column">
+                <!-- Radiology Basics -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="typing-text">Radiology is a medical specialty that uses imaging techniques to diagnose
+                            and treat diseases. Common imaging methods include X-rays, CT scans, MRIs, and ultrasounds.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the different types of radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Radiology can be divided into diagnostic radiology (which includes X-rays, MRIs, and CT
+                            scans) and interventional radiology (which involves minimally invasive procedures guided by
+                            imaging techniques).</p>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Imaging -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the difference between an X-ray and a CT scan?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>An X-ray provides a quick, basic image of bones and certain soft tissues, while a CT scan
+                            uses multiple X-ray images to create detailed cross-sectional images of the body, offering a
+                            more comprehensive view.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is MRI safe?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, MRI is generally safe as it does not use radiation. However, it is not suitable for
+                            people with certain implants, like pacemakers, due to the strong magnetic field.</p>
+                    </div>
+                </div>
+
+                <!-- Radiology Procedures -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is a mammogram?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A mammogram is an X-ray imaging test used to detect breast cancer by identifying
+                            abnormalities in breast tissue.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is an ultrasound used for?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ultrasound uses sound waves to create images of the inside of the body. It is commonly used
+                            for monitoring pregnancies, examining abdominal organs, and guiding certain medical
+                            procedures.</p>
+                    </div>
+                </div>
+
+                <!-- Radiation Safety -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is radiation from X-rays harmful?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While X-rays do involve a small amount of radiation, the benefits of diagnosing medical
+                            conditions typically outweigh the risks. Protective measures are used to minimize exposure.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I reduce my exposure to radiation in radiology tests?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To reduce radiation exposure, doctors recommend X-rays and CT scans only when necessary, and
+                            often choose the lowest radiation dose possible for the procedure.</p>
+                    </div>
+                </div>
+
+                <!-- Interventional Radiology -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is interventional radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Interventional radiology uses imaging techniques like X-rays, ultrasound, and CT scans to
+                            guide small instruments through the body to diagnose and treat various conditions, often
+                            without the need for surgery.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are common procedures in interventional radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Common interventional radiology procedures include angioplasty, biopsy, catheter placement,
+                            and the treatment of tumors using heat or cold.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Second column -->
+
+            <div class="faq-column">
+                <!-- Radiology Procedures -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the common types of radiology procedures?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Common radiology procedures include X-rays, CT scans, MRIs, ultrasounds, and fluoroscopy.
+                            These techniques help diagnose and monitor a wide range of medical conditions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is interventional radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Interventional radiology involves using imaging techniques, such as X-rays, CT scans, and
+                            ultrasounds, to guide minimally invasive procedures like biopsy, catheter insertion, and
+                            tumor treatment.</p>
+                    </div>
+                </div>
+                
+                <!-- Radiology Diagnostics -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the difference between an X-ray and an MRI?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>An X-ray uses radiation to create images of bones and certain soft tissues, while MRI uses
+                            magnetic fields and radio waves to produce detailed images of soft tissues, including the
+                            brain and muscles.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How are CT scans different from MRIs?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>CT scans use X-ray technology to create detailed cross-sectional images of the body, while
+                            MRIs use magnets and radio waves to produce highly detailed images, especially of soft
+                            tissues like the brain, muscles, and joints.</p>
+                    </div>
+                </div>
+
+                <!-- Radiation Safety -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are X-rays safe?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While X-rays do involve exposure to a small amount of radiation, they are generally
+                            considered safe when used appropriately. Your doctor will assess the benefits and risks
+                            before recommending an X-ray.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I reduce my radiation exposure during diagnostic tests?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To minimize radiation exposure, doctors recommend only using X-rays or CT scans when
+                            necessary and opting for the lowest radiation dose possible for the procedure. Alternatives
+                            like ultrasound and MRI may be used when appropriate.</p>
+                    </div>
+                </div>
+
+                <!-- Patient Education in Radiology -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why is patient education important in radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Patient education ensures that individuals understand the procedures they will undergo, how
+                            to prepare, and any potential risks involved. This helps in reducing anxiety and ensuring
+                            the best possible outcomes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What should I ask my radiologist during an appointment?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It's important to ask about the type of imaging procedure you'll be undergoing, any necessary
+                            preparation, the risks involved, and how long it will take. You should also ask about any
+                            possible alternatives to the procedure.</p>
+                    </div>
+                </div>
+
+                <!-- Common Radiology Conditions -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are common conditions diagnosed through radiology?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Radiology is used to diagnose a variety of conditions, including fractures, tumors,
+                            infections, heart disease, and internal bleeding. Imaging techniques are essential for
+                            accurate diagnosis and treatment planning.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can radiology detect cancer?
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, imaging tests like CT scans, MRIs, and mammograms are commonly used to detect and
+                            monitor cancer. These tests can identify tumors and help doctors determine the best course
+                            of treatment.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="faq.js"></script>
+
+
+</body>
+
+</html>

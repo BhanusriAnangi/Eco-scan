@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
+    
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+      
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            /* padding: 20px; */
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            color: #007bff;
+        }
+        .header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+        }
+        
+        .appointments-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .calendar-container {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .appointment-form {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .appointment-form button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .appointment-form button:hover {
+            background-color: #001f3f;
+        }
+
+        .calendar-container #calendar {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+ 
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Book Your Appointment at EchoScan Solutions</h1>
+            <p>Effortless scheduling of your radiology appointments with our easy-to-use booking form.</p>
+        </div>
+
+        <!-- Appointments Section: Calendar & Booking Form -->
+        <div class="appointments-section">
+            <!-- Calendar -->
+            <div class="calendar-container">
+                <h3>Select Appointment Date</h3>
+                <div id="calendar"></div>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="appointment-form">
+                <h3>Booking Form</h3>
+                <form id="bookingForm">
+                    <label for="date">Select Date:</label>
+                    <!-- Removed input for date; the date will be filled by the calendar -->
+                    <input type="text" id="date" name="date" required readonly placeholder="Select a date from the calendar">
+                    
+                    <label for="time">Select Time:</label>
+                    <input type="time" id="time" name="time" required>
+                    
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required oninput="removeNumbers(this)">
+                    
+                    
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="notes">Additional Notes:</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional information here..."></textarea>
+                    
+                    <button type="submit">Confirm Appointment</button>
+                </form>
+            </div>
+        </div></div>
+        
+        <script>
+             // Handling the booking form submission
+    document.getElementById('bookingForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form data
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const notes = document.getElementById('notes').value;
+
+        // Confirmation popup
+        const confirmationMessage = `
+            Appointment Details:
+            ---------------------
+            Name: ${name}
+            Email: ${email}
+            Date: ${date}
+            Time: ${time}
+            Notes: ${notes ? notes : "None"}
+
+            Thank you! Your appointment has been successfully booked.
+        `;
+        alert(confirmationMessage); // Show popup with details
+
+        // Optionally: Send this data to the backend for processing 
+        // Example: Send data via AJAX or fetch API
+    });
+            // FullCalendar Setup
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    selectable: true,
+                    validRange: {
+                        start: new Date().toISOString().split('T')[0], // Restrict to today or future dates
+                    },
+                    dateClick: function (info) {
+                        // Set the clicked date in the booking form
+                        document.getElementById('date').value = info.dateStr;
+        
+                        // If the selected date is today, restrict past time
+                        updateTimeInputRestrictions(info.dateStr === new Date().toISOString().split('T')[0]);
+                    },
+                    events: [ // Example events (You can retrieve these from your database)
+                        {
+                            title: 'MRI Scan Available',
+                            start: '2024-12-05T09:00:00',
+                            end: '2024-12-05T10:00:00',
+                        },
+                        {
+                            title: 'CT Scan Available',
+                            start: '2024-12-06T10:00:00',
+                            end: '2024-12-06T11:00:00',
+                        }
+                    ]
+                });
+                calendar.render();
+            });
+        
+            // Function to update the time input restrictions
+            function updateTimeInputRestrictions(isToday) {
+                const timeInput = document.getElementById('time');
+                if (isToday) {
+                    // Restrict time to current or future times for today
+                    const now = new Date();
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    timeInput.min = `${hours}:${minutes}`; // Set the minimum time to the current time
+                } else {
+                    // Clear restrictions for future dates
+                    timeInput.removeAttribute('min');
+                }
+            }
+        
+            // Firebase initialization (optional, for notifications)
+            const firebaseConfig = {
+                apiKey: "your-api-key",
+                authDomain: "your-app-id.firebaseapp.com",
+                projectId: "your-project-id",
+                storageBucket: "your-storage-bucket.appspot.com",
+                messagingSenderId: "your-sender-id",
+                appId: "your-app-id"
+            };
+            const app = firebase.initializeApp(firebaseConfig);
+            const messaging = firebase.messaging();
+        
+            // Handling the booking form submission
+            document.getElementById('bookingForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const notes = document.getElementById('notes').value;
+        
+                // Confirm booking (In a real application, send this data to your backend)
+                alert(`Appointment confirmed for ${name} on ${date} at ${time}. A confirmation will be sent to ${email}.`);
+        
+                // Optional: Firebase messaging for notifications (if required)
+                // messaging.getToken({ vapidKey: 'your-vapid-key' }).then((currentToken) => {
+                //     if (currentToken) {
+                //         // Send the token to the server to send a notification
+                //     } else {
+                //         console.log('No registration token available');
+                //     }
+                // }).catch((err) => {
+                //     console.log('An error occurred while retrieving token.', err);
+                // });
+            });
+
+            function removeNumbers(input) {
+        // Remove any numbers from the input value
+        input.value = input.value.replace(/[0-9]/g, '');
+    }
+        </script>
+        
+
+
+
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoScan Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="sub.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <br>
+    <!-- Service Detail Page -->
+    <div class="detail-container">
+      <div class="header-section">
+          <img src="s60.jpg" alt="Microwave Ablation Procedure" class="image-box">
+          <div class="info-box">
+              <h1 class="main-title">Microwave Ablation</h1>
+              <p class="short-description">
+                  Microwave Ablation (MWA) is a minimally invasive procedure used to treat tumors by using heat generated from microwaves. The procedure helps to shrink or destroy tumors in various organs, including the liver, kidney, and lungs. MWA offers a viable treatment option for patients who are not candidates for surgery or have inoperable tumors. It provides a non-surgical alternative to traditional treatments, such as surgery or radiation therapy, with reduced recovery time and minimal side effects. Microwave Ablation can offer excellent outcomes in the management of certain cancers, especially when combined with other treatment options.
+              </p>
+          </div>
+      </div>
+  
+      <div class="description-section">
+          <h2>Description</h2>
+          <p>
+              Microwave Ablation is a cutting-edge, non-invasive procedure that uses microwave energy to generate heat and destroy tumor tissue. The procedure is commonly used for liver, kidney, and lung cancers, as well as benign tumors. The process involves inserting a thin needle into the tumor site, where microwaves are emitted to heat and ablate the tumor tissue. The result is the destruction of cancerous or abnormal cells, which helps to reduce tumor size and prevent further growth.
+          </p>
+          <p>
+              The procedure is typically performed under local anesthesia or sedation, and the recovery time is significantly shorter compared to traditional surgery. It offers a safer option for patients who may be at higher surgical risk due to other health conditions, making it a highly effective alternative.
+          </p>
+      </div>
+  
+      <!-- Accordion Section (Row-wise) -->
+      <div class="accordion-wrapper">
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-procedures"></i>
+                  <span>Procedure Details</span>
+              </button>
+              <div class="accordion-content">
+                  <p>The Microwave Ablation procedure involves inserting a thin needle or probe into the tumor through the skin or via a catheter. High-frequency microwaves are transmitted through the probe to generate heat, which destroys the tumor tissue. The procedure is guided by imaging techniques such as ultrasound, CT, or MRI to ensure precise targeting of the tumor.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-plug"></i>
+                  <span>Equipment Used</span>
+              </button>
+              <div class="accordion-content">
+                  <p>The primary equipment used for Microwave Ablation includes a microwave generator, a probe or needle that delivers the microwave energy, and imaging equipment such as ultrasound, CT scans, or MRI to guide the procedure. The probe emits electromagnetic waves that produce heat to destroy the targeted tumor tissue effectively.</p>
+              </div>
+          </div>
+  
+          <div class="accordion-column">
+              <button class="accordion-button">
+                  <i class="icon fas fa-heart"></i>
+                  <span>Patient Benefits</span>
+              </button>
+              <div class="accordion-content">
+                  <p>Microwave Ablation offers numerous patient benefits, including minimal invasion, shorter recovery times, and reduced risks compared to traditional surgical approaches. This procedure can shrink or destroy tumors without the need for large incisions, providing faster healing and less discomfort. It can also be performed on patients who are not suitable candidates for surgery.</p>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Booking Section -->
+      <div class="booking-wrapper">
+          <h2>Book a Consultation</h2>
+          <a href="appointment.html" class="book-button">Schedule Now</a>
+      </div>
+  
+      <!-- Booking Form Modal -->
+      <div id="bookingModal" class="modal-wrapper">
+          <div class="modal-box">
+              <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+              <h2>Schedule Your Microwave Ablation Appointment</h2>
+              <form id="bookingForm">
+                  <label for="name">Full Name:</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                  <div class="error-message" id="name-error"></div>
+  
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                  <div class="error-message" id="email-error"></div>
+  
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required pattern="^[0-9]{10}$">
+                  <div class="error-message" id="phone-error"></div>
+  
+                  <label for="date">Preferred Date:</label>
+                  <input type="date" id="date" name="date" required>
+                  <div class="error-message" id="date-error"></div>
+  
+                  <label for="time">Preferred Time:</label>
+                  <input type="time" id="time" name="time" required>
+                  <div class="error-message" id="time-error"></div>
+                  <button type="submit" class="submit-btn">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  
+  
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form" style="flex-direction: row;">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="sub.js"></script>
+</body>
+
+</html>

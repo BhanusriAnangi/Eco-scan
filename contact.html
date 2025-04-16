@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.2/dist/wow.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">EchoScan Solutions</a>
+                </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+<!-- Contact Us Section Start -->
+<div class="contact-container">
+    <!-- Left Side: Image -->
+    <div class="contact-image">
+        <img src="cntus.jpg" alt="Contact Us Image">
+    </div>
+    
+    <!-- Right Side: Contact Form -->
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="" method="post">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                <span class="error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Map Section -->
+<div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.0272239153666!2d78.3893794!3d17.4458019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c20a7f1cfd27%3A0x77494b6439f6f774!2sMadhapur%2C%20Hyderabad%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sus!4v1602789519131!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!-- Contact Us Section End -->
+
+
+
+ 
+
+
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent the form from submitting
+    
+        let valid = true;
+    
+        // Validate Name (no numbers allowed)
+        const nameField = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        const nameValue = nameField.value;
+        if (/[^a-zA-Z ]/.test(nameValue)) {
+            nameError.textContent = "Name cannot contain numbers.";
+            valid = false;
+        } else {
+            nameError.textContent = "";
+        }
+    
+        // Validate Phone (only digits and 10 digits max)
+        const phoneField = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+        const phoneValue = phoneField.value;
+        if (/[^0-9]/.test(phoneValue)) {
+            phoneError.textContent = "Phone number can only contain digits.";
+            valid = false;
+        } else if (phoneValue.length !== 10) {
+            phoneError.textContent = "Phone number must be exactly 10 digits.";
+            valid = false;
+        } else {
+            phoneError.textContent = "";
+        }
+    
+        // If form is valid, reset form
+        if (valid) {
+            alert('Form submitted successfully!');
+            document.getElementById('contactForm').reset();
+        }
+    });
+    
+    // Real-time validation for name field (no numbers allowed)
+    document.getElementById('name').addEventListener('input', function() {
+        const nameField = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        if (/[^a-zA-Z ]/.test(nameField.value)) {
+            nameError.textContent = "Name cannot contain numbers.";
+        } else {
+            nameError.textContent = "";
+        }
+    });
+    
+    // Real-time validation for phone field (only digits allowed)
+    document.getElementById('phone').addEventListener('input', function() {
+        const phoneField = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+        if (/[^0-9]/.test(phoneField.value)) {
+            phoneError.textContent = "Phone number can only contain digits.";
+        } else if (phoneField.value.length > 10) {
+            phoneError.textContent = "Phone number must be exactly 10 digits.";
+        } else {
+            phoneError.textContent = "";
+        }
+    });
+        
+        // If form is valid, submit (for now we just log to the console)
+        if (isValid) {
+            console.log('Form submitted successfully');
+            alert('Thank you for contacting us!');
+        }
+  
+</script>
+   
+    
+</body>
+
+</html>

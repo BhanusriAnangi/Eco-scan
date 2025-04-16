@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css">
+    	/* body{margin-top:20px;} */
+.blog-listing {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.gray-bg {
+    background-color: #f5f5f5;
+}
+/* Blog 
+---------------------*/
+.blog-grid {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.blog-grid .blog-img {
+  position: relative;
+}
+.blog-grid .blog-img .date {
+  position: absolute;
+  background: #007bff;
+  color: #ffffff;
+  padding: 8px 15px;
+  left: 10px;
+  top: 10px;
+  border-radius: 4px;
+}
+.blog-grid .blog-img .date span {
+  font-size: 22px;
+  display: block;
+  line-height: 22px;
+  font-weight: 700;
+}
+.blog-grid .blog-img .date label {
+  font-size: 14px;
+  margin: 0;
+}
+.blog-grid .blog-info {
+  padding: 20px;
+}
+.blog-grid .blog-info h5 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.blog-grid .blog-info h5 a {
+  color: #20247b;
+}
+.blog-grid .blog-info p {
+  margin: 0;
+}
+.blog-grid .blog-info .btn-bar {
+  margin-top: 20px;
+}
+
+
+/* Blog Sidebar
+-------------------*/
+.blog-aside .widget {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+.blog-aside .widget-body {
+  padding: 15px;
+}
+.blog-aside .widget-title {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+.blog-aside .widget-title h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #007bff;
+  margin: 0;
+}
+.blog-aside .widget-author .media {
+  margin-bottom: 15px;
+}
+.blog-aside .widget-author p {
+  font-size: 16px;
+  margin: 0;
+}
+.blog-aside .widget-author .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.blog-aside .widget-author h6 {
+  font-weight: 600;
+  color: #20247b;
+  font-size: 22px;
+  margin: 0;
+  padding-left: 20px;
+}
+.blog-aside .post-aside {
+  margin-bottom: 15px;
+}
+.blog-aside .post-aside .post-aside-title h5 {
+  margin: 0;
+}
+.blog-aside .post-aside .post-aside-title a {
+  font-size: 18px;
+  color: #20247b;
+  font-weight: 600;
+}
+.blog-aside .post-aside .post-aside-meta {
+  padding-bottom: 10px;
+}
+.blog-aside .post-aside .post-aside-meta a {
+  color: #6F8BA4;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 10px;
+}
+.blog-aside .latest-post-aside + .latest-post-aside {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.blog-aside .latest-post-aside .lpa-right {
+  width: 90px;
+}
+.blog-aside .latest-post-aside .lpa-right img {
+  border-radius: 3px;
+}
+.blog-aside .latest-post-aside .lpa-left {
+  padding-right: 15px;
+}
+.blog-aside .latest-post-aside .lpa-title h5 {
+  margin: 0;
+  font-size: 15px;
+}
+.blog-aside .latest-post-aside .lpa-title a {
+  color: #20247b;
+  font-weight: 600;
+}
+.blog-aside .latest-post-aside .lpa-meta a {
+  color: #6F8BA4;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.tag-cloud a {
+  padding: 4px 15px;
+  font-size: 13px;
+  color: #ffffff;
+  background: #20247b;
+  border-radius: 3px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.tag-cloud a:hover {
+  background: #007bff;
+}
+
+.blog-single {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.article {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 15px;
+  margin: 15px 0 30px;
+}
+.article .article-title {
+  padding: 15px 0 20px;
+}
+.article .article-title h6 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.article .article-title h6 a {
+  text-transform: uppercase;
+  color: #007bff;
+  border-bottom: 1px solid #007bff;
+  text-decoration: none;
+}
+.article .article-title h2 {
+  color: #20247b;
+  font-weight: 600;
+}
+.article .article-title .media {
+  padding-top: 15px;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 20px;
+}
+.article .article-title .media .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.article .article-title .media .media-body {
+  padding-left: 8px;
+}
+.article .article-title .media .media-body label {
+  font-weight: 600;
+  color: #007bff;
+  margin: 0;
+}
+.article .article-title .media .media-body span {
+  display: block;
+  font-size: 12px;
+}
+.article .article-content h1,
+.article .article-content h2,
+.article .article-content h3,
+.article .article-content h4,
+.article .article-content h5,
+.article .article-content h6 {
+  color: #20247b;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.article .article-content blockquote {
+  max-width: 600px;
+  padding: 15px 0 30px 0;
+  margin: 0;
+}
+.article .article-content blockquote p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #007bff;
+  margin: 0;
+}
+.article .article-content blockquote .blockquote-footer {
+  color: #20247b;
+  font-size: 16px;
+}
+.article .article-content blockquote .blockquote-footer cite {
+  font-weight: 600;
+}
+.article .tag-cloud {
+  padding-top: 10px;
+}
+
+.article-comment {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 20px;
+}
+.article-comment h4 {
+  color: #20247b;
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+img {
+    /* max-width: 100%; */
+    height: 234px;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+
+
+    </style>
+</head>
+<body>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i> Madhapur 100 feet Road, Hyderabad.
+                    <i class="fas fa-clock"></i> 9:30 am - 6:30 pm
+                </div>
+                <div class="social-links">
+                    <a href="https://facebook.com/yourprofile"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/yourprofile"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Sticky Header -->
+        <header class="sticky-header">
+            <div class="container">
+                <div class="logo">
+                    <h1 style="font-weight: bold;">
+                        <a href="index.html">EchoScan Solutions</a>
+                    </h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html" style="text-decoration: none;">Home</a></li>
+                        <li><a href="about.html" style="text-decoration: none;">About</a></li>
+                        <li><a href="services.html" style="text-decoration: none;">Services</a></li>
+                        <li><a href="team.html" style="text-decoration: none;">Team</a></li>
+                        <li><a href="appointment.html" style="text-decoration: none;">Appointment</a></li>
+                        <li><a href="blog.html" style="text-decoration: none;">Blog</a></li>
+                        <li><a href="resources.html" style="text-decoration: none;">Resources</a></li>
+                        <li><a href="contact.html" style="text-decoration: none;">Contact</a></li>
+                        <li><a href="faq.html" style="text-decoration: none;">FAQ</a></li>
+                        <li><a href="dashboard.html" style="text-decoration: none;">Dashboard</a></li>
+                    </ul>
+                    <button class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </header>
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+<section class="blog-listing gray-bg">
+    <center><h2 style="font-weight: 900;">Blog</h2></center>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-8 m-15px-tb">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>04</span>
+                                        <label>JAN</label>
+                                    </div>
+                                    <a href="Bd1.html">
+                                        <img src="B1.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd1.html">Revolutionizing Diagnosis with AI in Radiology</a></h5>
+                                    <p>Explore how artificial intelligence is improving accuracy and efficiency in radiology, including examples like AI-powered CT scan analysis and predictive diagnostics. </p>
+                                    <div class="btn-bar">
+                                        <a href="Bd1.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>06</span>
+                                        <label>AUG</label>
+                                    </div>
+                                    <a href="Bd2.html">
+                                        <img src="B2.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd2.html">Understanding MRI: A Patient's Guide</a></h5>
+                                    <p>Break down the MRI process, its uses, and what patients can expect during the scan. Add visuals, benefits, and comparisons with other diagnostic techniques like X-rays or CT.</p>
+                                    <div class="btn-bar">
+                                        <a href="Bd2.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>18</span>
+                                        <label>OCT</label>
+                                    </div>
+                                    <a href="Bd3.html">
+                                        <img src="B3.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd3.html">Introducing 3D Mammography at Our Practice</a></h5>
+                                    <p>Announce new equipment, explain its benefits over traditional mammograms, and provide patient testimonials to build trust.</p>
+                                    <div class="btn-bar">
+                                        <a href="Bd3.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>27</span>
+                                        <label>FEB</label>
+                                    </div>
+                                    <a href="Bd4.html">
+                                        <img src="B4.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd4.html">The Future of Interventional Radiology</a></h5>
+                                    <p> Discuss minimally invasive treatments guided by imaging, such as biopsies or tumor ablations, with examples of how they improve.</p>
+                                    <div class="btn-bar">
+                                        <a href="Bd4.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>15</span>
+                                        <label>AUG</label>
+                                    </div>
+                                    <a href="Bd5.html">
+                                        <img src="B5.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd5.html">How Ultrasound is Redefining Prenatal Care</a></h5>
+                                    <p>Explain how advanced ultrasound technology provides clearer images, aiding in fetal health monitoring.</p>
+                                    <div class="btn-bar">
+                                        <a href="Bd5.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+                                    <div class="date">
+                                        <span>08</span>
+                                        <label>JAN</label>
+                                    </div>
+                                    <a href="Bd6.html">
+                                        <img src="B6.jpg" title="" alt="" style="width: 380px;">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <h5><a href="Bd6.html">CT Scans: Myths vs. Facts</a></h5>
+                                    <p>Debunk common misconceptions about CT scans, such as radiation risks, preparation requirements, and usage. Provide factual information backed by research.</p>
+                                    <div class="btn-bar">
+                                        <a href="Bd6.html" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="blog-grid">
+                              <div class="blog-img">
+                                  <div class="date">
+                                      <span>04</span>
+                                      <label>FEB</label>
+                                  </div>
+                                  <a href="Bd7.html">
+                                      <img src="B7.jpg" title="" alt="" style="width: 380px;">
+                                  </a>
+                              </div>
+                              <div class="blog-info">
+                                  <h5><a href="Bd7.html">The Role of Radiology in Early Cancer Detection</a></h5>
+                                  <p>Highlight how imaging techniques like PET scans and mammography enable early diagnosis, improving survival rates. Share examples from clinical practice.</p>
+                                  <div class="btn-bar">
+                                      <a href="Bd7.html" class="px-btn-arrow">
+                                          <span>Read More</span>
+                                          <i class="arrow"></i>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <div class="date">
+                                    <span>21</span>
+                                    <label>JUNE</label>
+                                </div>
+                                <a href="Bd8.html">
+                                    <img src="B8.jpg" title="" alt="" style="width: 380px;">
+                                </a>
+                            </div>
+                            <div class="blog-info">
+                                <h5><a href="Bd8.html">Behind the Scenes: A Day in the Life of a Radiologist</a></h5>
+                                <p>Offer readers an insider's look into the daily workflow of a radiologist, showcasing technology, decision-making, and patient care responsibilities.</p>
+                                <div class="btn-bar">
+                                    <a href="Bd8.html" class="px-btn-arrow">
+                                        <span>Read More</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="blog-grid">
+                          <div class="blog-img">
+                              <div class="date">
+                                  <span>20</span>
+                                  <label>SEP</label>
+                              </div>
+                              <a href="Bd9.html">
+                                  <img src="B9.jpg" title="" alt="" style="width: 380px;">
+                              </a>
+                          </div>
+                          <div class="blog-info">
+                              <h5><a href="Bd9.html">What’s New in Pediatric Radiology?</a></h5>
+                              <p>Detail advancements in child-focused imaging technologies, like low-radiation X-rays and MRI techniques tailored for young patients, ensuring comfort and safety.</p>
+                              <div class="btn-bar">
+                                  <a href="Bd9.html" class="px-btn-arrow">
+                                      <span>Read More</span>
+                                      <i class="arrow"></i>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="blog-grid">
+                        <div class="blog-img">
+                            <div class="date">
+                                <span>04</span>
+                                <label>MARCH</label>
+                            </div>
+                            <a href="Bd10.html">
+                                <img src="B10.jpg" title="" alt="" style="width: 380px;">
+                            </a>
+                        </div>
+                        <div class="blog-info">
+                            <h5><a href="Bd10.html"> Tele-Radiology: Bridging the Gap in Remote Areas</a></h5>
+                            <p>Discuss how tele-radiology is providing access to diagnostic services in underserved regions, including examples of successful implementations worldwide.</p>
+                            <div class="btn-bar">
+                                <a href="Bd10.html" class="px-btn-arrow">
+                                    <span>Read More</span>
+                                    <i class="arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                     
+                    </div>
+                </div>
+
+                <div class="col-lg-4 m-15px-tb blog-aside">
+                    <!-- Author -->
+                    <div class="widget widget-author">
+                      <div class="widget-title">
+                          <h3>About Us</h3>
+                      </div>
+                      <div class="widget-body">
+                          <div class="media align-items-center">
+                              <div class="avatar">
+                                  <img src="B-s1.jpg" title="" alt="" style="height: 79px;">
+                              </div>
+                              <div class="media-body">
+                                  <h6>Welcome to<br> EchoScan Solutions</h6>
+                              </div>
+                          </div>
+                          <p>We specialize in advanced radiology and diagnostic services, providing precise imaging solutions to improve patient outcomes. Our team is dedicated to delivering accurate results with cutting-edge technology and compassionate care.</p>
+                      </div>
+                  </div>
+                  
+                    <!-- End Author -->
+
+                    <!-- Trending Post -->
+                    <div class="widget widget-post">
+                        <div class="widget-title">
+                            <div class="categories">
+                                <center><h3>Trending Categories</h3></center>
+                                <br>
+                                <ul>
+                                    <li><a href="e1.html">X-ray Imaging</a></li>
+                                    <li><a href="e2.html">CT (Computed Tomography) Scan</a></li>
+                                    <li><a href="e3.html">MRI (Magnetic Resonance Imaging)</a></li>
+                                    <li><a href="e4.html">Ultrasound</a></li>
+                                    <li><a href="e5.html">Fluoroscopy</a></li>
+                                    <li><a href="e6.html">Mammography</a></li>
+                                    <li><a href="e7.html">Bone Densitometry (DEXA)</a></li>
+                                    <li><a href="e8.html">PET/CT Scan </a></li>
+                                    <li><a href="e9.html">MRI Arthrogram</a></li>
+                                    <li><a href="e10.html">CT Angiography</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="widget-body">
+
+                        </div>
+                    </div>
+                    <!-- End Trending Post -->
+
+                    <!-- Latest Post -->
+                    <div class="widget widget-latest-post">
+                        <div class="widget-title">
+                            <h3>Latest Post</h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="latest-post-aside">
+                                <div class="lpa-left media-body">
+                                    <div class="lpa-title">
+                                        <h5>The Future of AI in Radiology</h5>
+                                        <p>"Explore how artificial intelligence is transforming diagnostic accuracy and efficiency in radiology."</p>
+                                    </div>
+                               
+                                </div>
+                                <div class="lpa-right">
+                                
+                                        <img src="B-s2.jpg" title="" alt="" style="width: 300px;">
+                                 
+                                </div>
+                            </div>
+                            <div class="latest-post-aside">
+                                <div class="lpa-left media-body">
+                                    <div class="lpa-title">
+                                        <h5>Understanding PET Scans: What Patients Need to Know</h5>
+                                        <p>"Learn the purpose, process, and preparation for PET scans in this in-depth guide."</p>
+                                    </div>
+                               
+                                </div>
+                                <div class="lpa-right">
+                                
+                                        <img src="B-s3.jpg" title="" alt="" style="width: 300px;">
+                                 
+                                </div>
+                            </div>
+                            <div class="latest-post-aside">
+                                <div class="lpa-left media-body">
+                                    <div class="lpa-title">
+                                        <h5>Top 5 Innovations in Radiology for 2024</h5>
+                                        <p>"Discover the cutting-edge tools and technologies shaping the future of radiology."</p>
+                                    </div>
+                               
+                                </div>
+                                <div class="lpa-right">
+                                
+                                        <img src="B-s4.jpg" title="" alt="" style="width: 300px;">
+                                 
+                                </div>
+                            </div>
+                            <div class="latest-post-aside">
+                                <div class="lpa-left media-body">
+                                    <div class="lpa-title">
+                                        <h5>MRI Safety: What You Need to Know</h5>
+                                        <p>"Essential safety tips for patients and radiology professionals when using MRI technology."</p>
+                                    </div>
+                               
+                                </div>
+                                <div class="lpa-right">
+                                
+                                        <img src="B-s5.jpg" title="" alt="" style="width: 300px;">
+                                 
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Latest Post -->
+
+                    <!-- widget Tags -->
+                    <div class="widget widget-tags">
+                        <div class="widget-title">
+                            <h3>Latest Tags</h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="nav tag-cloud">
+                                <a href="e11.html">MRI Angiography</a>
+                                <a href="e12.html">Spinal Imaging</a>
+                                <a href="e13.html">Cervical Spine MRI</a>
+                                <a href="e14.html">Lumbar Spine MRI</a>
+                                <a href="e15.html">Pelvic MRI</a>
+                                <a href="e16.html">Abdominal MRI</a>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End widget Tags -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="background: #001f3f; color: #fff; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-row">
+                <!-- Our Office -->
+                <div class="footer-column">
+                    <h4>Office Address</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad, Telangana.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> echoscan@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank" aria-label="Google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Discover More</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with the latest news and updates.</p>
+                    <form id="newsletter-form">
+                        <input type="email" id="email" placeholder="Your email" required>
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: #007bff; margin-top: 10px;">Subscription
+                        Successful!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>
